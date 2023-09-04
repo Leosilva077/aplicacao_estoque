@@ -22,6 +22,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+
+
 class StockList extends StatefulWidget {
   @override
   _StockListState createState() => _StockListState();
