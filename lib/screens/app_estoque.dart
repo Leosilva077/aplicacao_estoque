@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -10,12 +12,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: WelcomeScreen(),
+      home: const WelcomeScreen(),
     );
   }
 }
 
 class WelcomeScreen extends StatelessWidget {
+  const WelcomeScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -24,13 +28,13 @@ class WelcomeScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Icon(
+            const Icon(
               Icons.inventory,
               size: 100,
               color: Colors.white,
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Bem-Vindo ao Controle de Estoque',
               style: TextStyle(
                 fontSize: 24,
@@ -38,15 +42,15 @@ class WelcomeScreen extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'Crie sua conta grátis ou faça login',
               style: TextStyle(
                 fontSize: 18,
                 color: Colors.white,
               ),
             ),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
                 // Navegue para a tela de registro
@@ -57,10 +61,10 @@ class WelcomeScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                backgroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
-              child: Text(
+              child: const Text(
                 'Crie sua conta grátis',
                 style: TextStyle(
                   fontSize: 18,
@@ -68,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 // Navegue para a tela de login
@@ -79,10 +83,10 @@ class WelcomeScreen extends StatelessWidget {
                 );
               },
               style: ElevatedButton.styleFrom(
-                primary: Colors.white,
-                padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                backgroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
-              child: Text(
+              child: const Text(
                 'Faça login',
                 style: TextStyle(
                   fontSize: 18,
@@ -105,36 +109,38 @@ class RegisterScreen extends StatelessWidget {
   // Lista para armazenar informações de usuário (simulação)
   final List<Map<String, String>> users = [];
 
+  RegisterScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Cadastro'),
+        title: const Text('Cadastro'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             TextFormField(
               controller: nameController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Nome',
               ),
             ),
             TextFormField(
               controller: emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
               ),
             ),
             TextFormField(
               controller: passwordController,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Senha',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 final name = nameController.text;
@@ -151,14 +157,14 @@ class RegisterScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Cadastro Concluído'),
-                        content: Text('Cadastro realizado com sucesso!'),
+                        title: const Text('Cadastro Concluído'),
+                        content: const Text('Cadastro realizado com sucesso!'),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('OK'),
+                            child: const Text('OK'),
                           ),
                         ],
                       );
@@ -170,14 +176,14 @@ class RegisterScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Erro de Cadastro'),
-                        content: Text('Preencha todos os campos obrigatórios.'),
+                        title: const Text('Erro de Cadastro'),
+                        content: const Text('Preencha todos os campos obrigatórios.'),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('OK'),
+                            child: const Text('OK'),
                           ),
                         ],
                       );
@@ -185,7 +191,7 @@ class RegisterScreen extends StatelessWidget {
                   );
                 }
               },
-              child: Text('Me Cadastrar'),
+              child: const Text('Me Cadastrar'),
             ),
           ],
         ),
@@ -201,30 +207,32 @@ class LoginScreen extends StatelessWidget {
   // Lista para armazenar informações de usuário (simulação)
   final List<Map<String, String>> users = [];
 
+  LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Faça Login'),
+        title: const Text('Faça Login'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(16.0),
         child: Column(
           children: <Widget>[
             TextFormField(
               controller: emailController,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Email',
               ),
             ),
             TextFormField(
               controller: passwordController,
               obscureText: true,
-              decoration: InputDecoration(
+              decoration: const InputDecoration(
                 labelText: 'Senha',
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {
                 final email = emailController.text;
@@ -243,7 +251,7 @@ class LoginScreen extends StatelessWidget {
                   // Navegue para a próxima tela (a ser implementada)
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => NextScreen(),
+                      builder: (context) => const NextScreen(),
                     ),
                   );
                 } else {
@@ -252,14 +260,14 @@ class LoginScreen extends StatelessWidget {
                     context: context,
                     builder: (BuildContext context) {
                       return AlertDialog(
-                        title: Text('Erro de Login'),
-                        content: Text('Email ou Senha Incorretos'),
+                        title: const Text('Erro de Login'),
+                        content: const Text('Email ou Senha Incorretos'),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
                               Navigator.of(context).pop();
                             },
-                            child: Text('OK'),
+                            child: const Text('OK'),
                           ),
                         ],
                       );
@@ -267,7 +275,7 @@ class LoginScreen extends StatelessWidget {
                   );
                 }
               },
-              child: Text('Entrar'),
+              child: const Text('Entrar'),
             ),
           ],
         ),
@@ -277,13 +285,15 @@ class LoginScreen extends StatelessWidget {
 }
 
 class NextScreen extends StatelessWidget {
+  const NextScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Próxima Tela'),
+        title: const Text('Próxima Tela'),
       ),
-      body: Center(
+      body: const Center(
         child: Text('Esta é a próxima tela.'),
       ),
     );

@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(const MyApp());
 
 class Product {
   String code;
@@ -15,6 +15,8 @@ class Product {
 }
 
 class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -22,12 +24,14 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: StockList(),
+      home: const StockList(),
     );
   }
 }
 
 class StockList extends StatefulWidget {
+  const StockList({super.key});
+
   @override
   _StockListState createState() => _StockListState();
 }
@@ -57,7 +61,7 @@ class _StockListState extends State<StockList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Controle de Estoque Flutter'),
+        title: const Text('Controle de Estoque Flutter'),
       ),
       body: ListView.builder(
         itemCount: products.length,
@@ -80,7 +84,7 @@ class _StockListState extends State<StockList> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 IconButton(
-                  icon: Icon(Icons.edit),
+                  icon: const Icon(Icons.edit),
                   onPressed: () async {
                     final editedProduct = await showDialog<Product>(
                       context: context,
@@ -93,12 +97,12 @@ class _StockListState extends State<StockList> {
                         String newDescription = product.description;
 
                         return AlertDialog(
-                          title: Text('Editar Produto'),
+                          title: const Text('Editar Produto'),
                           content: Column(
                             mainAxisSize: MainAxisSize.min,
                             children: <Widget>[
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Nome',
                                 ),
                                 onChanged: (text) {
@@ -106,7 +110,7 @@ class _StockListState extends State<StockList> {
                                 },
                               ),
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Código',
                                 ),
                                 onChanged: (text) {
@@ -114,7 +118,7 @@ class _StockListState extends State<StockList> {
                                 },
                               ),
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Quantidade',
                                 ),
                                 keyboardType: TextInputType.number,
@@ -123,7 +127,7 @@ class _StockListState extends State<StockList> {
                                 },
                               ),
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Lote',
                                 ),
                                 onChanged: (text) {
@@ -131,7 +135,7 @@ class _StockListState extends State<StockList> {
                                 },
                               ),
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Data de Vencimento (yyyy-MM-dd)',
                                 ),
                                 onChanged: (text) {
@@ -144,7 +148,7 @@ class _StockListState extends State<StockList> {
                                 },
                               ),
                               TextField(
-                                decoration: InputDecoration(
+                                decoration: const InputDecoration(
                                   labelText: 'Descrição',
                                 ),
                                 onChanged: (text) {
@@ -158,13 +162,13 @@ class _StockListState extends State<StockList> {
                               onPressed: () {
                                 Navigator.pop(context);
                               },
-                              child: Text('Cancelar'),
+                              child: const Text('Cancelar'),
                             ),
                             ElevatedButton(
                               onPressed: () {
                                 Navigator.pop(context, Product(newCode, newName, newQuantity, newLot, newExpirationDate, newDescription));
                               },
-                              child: Text('Salvar'),
+                              child: const Text('Salvar'),
                             ),
                           ],
                         );
@@ -177,7 +181,7 @@ class _StockListState extends State<StockList> {
                   },
                 ),
                 IconButton(
-                  icon: Icon(Icons.delete),
+                  icon: const Icon(Icons.delete),
                   onPressed: () => _deleteProduct(index),
                 ),
               ],
@@ -198,12 +202,12 @@ class _StockListState extends State<StockList> {
               String description = '';
 
               return AlertDialog(
-                title: Text('Adicionar Produto'),
+                title: const Text('Adicionar Produto'),
                 content: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: <Widget>[
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Nome',
                       ),
                       onChanged: (text) {
@@ -211,7 +215,7 @@ class _StockListState extends State<StockList> {
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Código',
                       ),
                       onChanged: (text) {
@@ -219,7 +223,7 @@ class _StockListState extends State<StockList> {
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Quantidade',
                       ),
                       keyboardType: TextInputType.number,
@@ -228,7 +232,7 @@ class _StockListState extends State<StockList> {
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Lote',
                       ),
                       onChanged: (text) {
@@ -236,7 +240,7 @@ class _StockListState extends State<StockList> {
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Data de Vencimento (yyyy-MM-dd)',
                       ),
                       onChanged: (text) {
@@ -249,7 +253,7 @@ class _StockListState extends State<StockList> {
                       },
                     ),
                     TextField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         labelText: 'Descrição',
                       ),
                       onChanged: (text) {
@@ -263,13 +267,13 @@ class _StockListState extends State<StockList> {
                     onPressed: () {
                       Navigator.pop(context);
                     },
-                    child: Text('Cancelar'),
+                    child: const Text('Cancelar'),
                   ),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.pop(context, Product(code, name, quantity, lot, expirationDate, description));
                     },
-                    child: Text('Adicionar'),
+                    child: const Text('Adicionar'),
                   ),
                 ],
               );
@@ -281,7 +285,7 @@ class _StockListState extends State<StockList> {
           }
         },
         tooltip: 'Adicionar Produto',
-        child: Icon(Icons.add),
+        child: const Icon(Icons.add),
       ),
     );
   }
