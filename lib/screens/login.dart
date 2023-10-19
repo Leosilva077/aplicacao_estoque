@@ -27,7 +27,7 @@ class LoginScreen extends StatelessWidget {
     return SafeArea(
       child: Column(
         children: [
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Text(
@@ -39,26 +39,45 @@ class LoginScreen extends StatelessWidget {
               )
             ],
           ),
-          SizedBox(height: 76),
+          const SizedBox(height: 76),
           Form(
             child: Column(
               children: [
                 texFormField(label: 'Email', icon: Icons.email_outlined),
-                SizedBox(height: 49),
+                const SizedBox(height: 49),
                 texFormField(label: 'Senha', icon: Icons.key_outlined),
               ],
             ),
           ),
-          SizedBox(height: 43),
+          const SizedBox(height: 43),
           GestureDetector(
               onTap: null,
-              child: Text(
+              child: const Text(
                 'Esqueceu a senha?',
                 style: TextStyle(
                     color: secondaryColor,
                     fontSize: 15,
                     fontWeight: FontWeight.w500),
-              ))
+              )),
+          const SizedBox(height: 32),
+          GestureDetector(
+            onTap: null,
+            child: Column(
+              children: [
+                Container(
+                    width: 200,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12),
+                        color: secondaryColor),
+                    child: Center(
+                      child: Text(
+                        'Entrar',
+                      ),
+                    )),
+              ],
+            ),
+          )
         ],
       ),
     );
