@@ -1,21 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/theme/colors.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Controle de Estoque Flutter',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const LoginScreen(),
-    );
-  }
-}
+import '../widget/widget_form.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -24,63 +10,56 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              TextFormField(
-                decoration: const InputDecoration(
-                  labelText: 'Nome de Usuário',
-                ),
-              ),
-              const SizedBox(height: 16.0),
-              TextFormField(
-                obscureText: true,
-                decoration: const InputDecoration(
-                  labelText: 'Senha',
-                ),
-              ),
-              const SizedBox(height: 24.0),
-              ElevatedButton(
-                onPressed: () {
-                  // Implemente a lógica de autenticação aqui
-                  // Por enquanto, apenas navegue para a tela principal do estoque
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const StockList(),
-                    ),
-                  );
-                },
-                child: const Text('Entrar'),
-              ),
-            ],
-          ),
+        elevation: 0,
+        backgroundColor: backgroundColor,
+        leading: const Icon(
+          Icons.arrow_back,
+          color: primaryColor,
+          size: 35,
         ),
       ),
+      body: _getBody(),
+      backgroundColor: backgroundColor,
     );
   }
-}
 
-class StockList extends StatefulWidget {
-  const StockList({super.key});
-
-  @override
-  _StockListState createState() => _StockListState();
-}
-
-class _StockListState extends State<StockList> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Lista de Estoque'),
-      ),
-      body: const Center(
-        child: Text('Esta é a lista de estoque.'),
+  Widget _getBody() {
+    return SafeArea(
+      child: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Login',
+                style: TextStyle(
+                    color: secondaryColor,
+                    fontSize: 40,
+                    fontWeight: FontWeight.w400),
+              )
+            ],
+          ),
+          SizedBox(height: 76),
+          Form(
+            child: Column(
+              children: [
+                texFormField(label: 'Email', icon: Icons.email_outlined),
+                SizedBox(height: 49),
+                texFormField(label: 'Senha', icon: Icons.key_outlined),
+              ],
+            ),
+          ),
+          SizedBox(height: 43),
+          GestureDetector(
+              onTap: null,
+              child: Text(
+                'Esqueceu a senha?',
+                style: TextStyle(
+                    color: secondaryColor,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w500),
+              ))
+        ],
       ),
     );
   }

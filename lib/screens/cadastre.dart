@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -69,7 +67,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
               child: const Text(
                 'Crie sua conta grátis',
@@ -91,7 +90,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
               child: const Text(
                 'Faça login',
@@ -182,7 +182,8 @@ class RegisterScreen extends StatelessWidget {
                       builder: (BuildContext context) {
                         return AlertDialog(
                           title: const Text('Cadastro Concluído'),
-                          content: const Text('Cadastro realizado com sucesso!'),
+                          content:
+                              const Text('Cadastro realizado com sucesso!'),
                           actions: <Widget>[
                             ElevatedButton(
                               onPressed: () {

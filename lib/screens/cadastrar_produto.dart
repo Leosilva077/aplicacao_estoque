@@ -1,17 +1,16 @@
-
 import 'package:flutter/material.dart';
-
-void main() => runApp(const MyApp());
 
 class Product {
   String code;
   String name;
   int quantity;
   String lot;
-  DateTime? expirationDate; // Alterado para DateTime? para permitir valores nulos
+  DateTime?
+      expirationDate; // Alterado para DateTime? para permitir valores nulos
   String description;
 
-  Product(this.code, this.name, this.quantity, this.lot, this.expirationDate, this.description);
+  Product(this.code, this.name, this.quantity, this.lot, this.expirationDate,
+      this.description);
 }
 
 class MyApp extends StatelessWidget {
@@ -76,7 +75,8 @@ class _StockListState extends State<StockList> {
                 Text('Código: ${product.code}'),
                 Text('Quantidade: ${product.quantity}'),
                 Text('Lote: ${product.lot}'),
-                Text('Data de Vencimento: ${product.expirationDate?.toString() ?? 'N/A'}'), // Verificação para exibir 'N/A' se expirationDate for nulo
+                Text(
+                    'Data de Vencimento: ${product.expirationDate?.toString() ?? 'N/A'}'), // Verificação para exibir 'N/A' se expirationDate for nulo
                 Text('Descrição: ${product.description}'),
               ],
             ),
@@ -93,7 +93,8 @@ class _StockListState extends State<StockList> {
                         String newCode = product.code;
                         int newQuantity = product.quantity;
                         String newLot = product.lot;
-                        DateTime? newExpirationDate = product.expirationDate; // Alterado para DateTime?
+                        DateTime? newExpirationDate =
+                            product.expirationDate; // Alterado para DateTime?
                         String newDescription = product.description;
 
                         return AlertDialog(
@@ -166,7 +167,15 @@ class _StockListState extends State<StockList> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                Navigator.pop(context, Product(newCode, newName, newQuantity, newLot, newExpirationDate, newDescription));
+                                Navigator.pop(
+                                    context,
+                                    Product(
+                                        newCode,
+                                        newName,
+                                        newQuantity,
+                                        newLot,
+                                        newExpirationDate,
+                                        newDescription));
                               },
                               child: const Text('Salvar'),
                             ),
@@ -271,7 +280,10 @@ class _StockListState extends State<StockList> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.pop(context, Product(code, name, quantity, lot, expirationDate, description));
+                      Navigator.pop(
+                          context,
+                          Product(code, name, quantity, lot, expirationDate,
+                              description));
                     },
                     child: const Text('Adicionar'),
                   ),

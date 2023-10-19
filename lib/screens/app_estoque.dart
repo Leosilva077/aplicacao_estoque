@@ -1,22 +1,5 @@
 import 'package:flutter/material.dart';
 
-void main() => runApp(const MyApp());
-
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Controle de Estoque Flutter',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const WelcomeScreen(),
-    );
-  }
-}
-
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
 
@@ -62,7 +45,8 @@ class WelcomeScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
               child: const Text(
                 'Crie sua conta grátis',
@@ -84,7 +68,8 @@ class WelcomeScreen extends StatelessWidget {
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.white,
-                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               ),
               child: const Text(
                 'Faça login',
@@ -103,7 +88,8 @@ class WelcomeScreen extends StatelessWidget {
 
 class RegisterScreen extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
-  final TextEditingController emailController = TextEditingController(); // Adicionado campo de e-mail
+  final TextEditingController emailController =
+      TextEditingController(); // Adicionado campo de e-mail
   final TextEditingController passwordController = TextEditingController();
 
   // Lista para armazenar informações de usuário (simulação)
@@ -148,9 +134,12 @@ class RegisterScreen extends StatelessWidget {
                 final password = passwordController.text;
 
                 // Verifique se o nome, email e senha são válidos (simulação)
-                if (name.isNotEmpty && email.isNotEmpty && password.isNotEmpty) {
+                if (name.isNotEmpty &&
+                    email.isNotEmpty &&
+                    password.isNotEmpty) {
                   // Armazene as informações do usuário na lista (simulação)
-                  users.add({'name': name, 'email': email, 'password': password});
+                  users.add(
+                      {'name': name, 'email': email, 'password': password});
 
                   // Exiba uma mensagem de sucesso
                   showDialog(
@@ -177,7 +166,8 @@ class RegisterScreen extends StatelessWidget {
                     builder: (BuildContext context) {
                       return AlertDialog(
                         title: const Text('Erro de Cadastro'),
-                        content: const Text('Preencha todos os campos obrigatórios.'),
+                        content: const Text(
+                            'Preencha todos os campos obrigatórios.'),
                         actions: <Widget>[
                           ElevatedButton(
                             onPressed: () {
