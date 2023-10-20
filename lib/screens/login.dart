@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
-
 import '../widget/widget_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -68,14 +67,28 @@ class LoginScreen extends StatelessWidget {
                     width: 200,
                     height: 40,
                     decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(12),
+                        borderRadius: BorderRadius.circular(150),
                         color: secondaryColor),
-                    child: Center(
+                    child: const Center(
                       child: Text(
                         'Entrar',
+                        style: TextStyle(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w700,
+                          color: backgroundColor,
+                        ),
                       ),
                     )),
               ],
+            ),
+          ),
+          const SizedBox(height: 32),
+          const Text(
+            "------ OU -------",
+            style: TextStyle(
+              color: secondaryColor,
+              fontSize: 18,
+              fontWeight: FontWeight.w500,
             ),
           )
         ],
