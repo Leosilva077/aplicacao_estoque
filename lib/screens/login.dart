@@ -90,6 +90,12 @@ class LoginScreen extends StatelessWidget {
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),
+          ),
+          SizedBox(
+            height: 47,
+          ),
+          GestureDetector(
+            child: Column(),
           )
         ],
       ),
