@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/widget/widget_social_Apple.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 import '../widget/widget_form.dart';
 
@@ -10,7 +11,7 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 1,
         backgroundColor: backgroundColor,
         leading: const Icon(
           Icons.arrow_back,
@@ -92,13 +93,17 @@ class LoginScreen extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 47,
           ),
           ButtonTheme(
             child: Column(children: [
-              elevatedButton(
-                  label: 'Entrar com Google', icon: Icons.login_outlined),
+              elevatedButtonSocialGoogle(
+                label: 'Entrar com Google',
+              ),
+              const SizedBox(height: 20),
+              elevatedButtonSocialApple(
+                  label: 'Entrar com Apple', icon: Icons.facebook)
             ]),
           )
         ],

@@ -1,24 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
 
-Container elevatedButton({required String label, required IconData icon}) {
+Container elevatedButtonSocialGoogle({required String label, IconData? icon}) {
   return Container(
     decoration: const BoxDecoration(
-      color: tertiaryColor,
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderRadius: BorderRadius.all(Radius.circular(20)),
     ),
     width: 242,
-    height: 53,
+    height: 50,
     child: ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,
-        disabledForegroundColor: Colors.red.withOpacity(0.38),
+        backgroundColor: secondaryColor,
+        disabledForegroundColor:
+            const Color.fromARGB(255, 54, 54, 54).withOpacity(0.40),
         elevation: 15,
         shadowColor: primaryColor,
       ),
-      child: Text(
-        label,
-      ),
+      child: Row(children: [
+        const ImageIcon(
+          AssetImage('asset/icons/google.png'),
+          size: 10,
+        ),
+        Text(label,
+            style: const TextStyle(
+                fontSize: 18, color: TextColor, fontWeight: FontWeight.w500)),
+      ]),
       onPressed: () {},
     ),
   );
