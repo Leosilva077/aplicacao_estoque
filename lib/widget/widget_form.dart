@@ -6,7 +6,9 @@ Container texFormField({required String label, required IconData icon}) {
     decoration: const BoxDecoration(
       color: Colors.white,
       borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
+        topLeft: Radius.circular(10),
+        bottomRight: Radius.circular(10),
+      ),
     ),
     width: 340,
     height: 52,

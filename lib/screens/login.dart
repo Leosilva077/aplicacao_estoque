@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/widget/widget_social_google.dart';
 import '../widget/widget_form.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -94,8 +95,11 @@ class LoginScreen extends StatelessWidget {
           SizedBox(
             height: 47,
           ),
-          GestureDetector(
-            child: Column(),
+          ButtonTheme(
+            child: Column(children: [
+              elevatedButton(
+                  label: 'Entrar com Google', icon: Icons.login_outlined),
+            ]),
           )
         ],
       ),
