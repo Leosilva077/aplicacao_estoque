@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 
-Container texFormField(
-    {required String label, required IconData icon, BorderSide? borderSide}) {
+Container texForm({
+  required String label,
+  required IconData icon,
+}) {
   return Container(
     decoration: const BoxDecoration(
       color: Colors.white,

@@ -1,5 +1,8 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/widget/widget_form.dart';
 
 class cadastre extends StatefulWidget {
   const cadastre({super.key});
@@ -38,10 +41,26 @@ class _cadastreState extends State<cadastre> {
           ],
         ),
         const SizedBox(height: 15),
-        Form(
-            child: Column(
-          children: [TextFormField()],
-        ))
+        Column(
+          children: [
+            Form(
+                child: texFormField(
+              label: 'Nome',
+              icon: Icons.person,
+            )),
+            const SizedBox(height: 15),
+            texFormField(label: 'Email', icon: Icons.email_outlined),
+            const SizedBox(height: 15),
+            texFormField(label: 'Senha', icon: Icons.key_outlined),
+            const SizedBox(height: 15),
+            texFormField(label: 'Confirmar Senha', icon: Icons.key_outlined),
+            const SizedBox(height: 15),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Cadastrar'),
+            )
+          ],
+        )
       ],
     ));
   }
