@@ -1,26 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/colors.dart';
 
-Container elevatedButtonSocialApple({required String label, IconData? icon}) {
-  return Container(
-    decoration: const BoxDecoration(
-      borderRadius: BorderRadius.all(Radius.circular(20)),
-    ),
-    width: 224,
+SizedBox elevatedButtonSocialApple({
+  required IconData icon,
+  required String text,
+  required Color color,
+  required MaterialStateProperty<Color> prymaryColor,
+}) {
+  return SizedBox(
+    width: 200,
     height: 50,
     child: ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: primaryColor,
-        disabledForegroundColor: Colors.red.withOpacity(0.40),
-        elevation: 15,
-        shadowColor: primaryColor,
-      ),
-      child: Text(label,
-          style: const TextStyle(
-              fontSize: 18,
-              color: secondaryColor,
-              fontWeight: FontWeight.w500)),
       onPressed: () {},
+      style: ButtonStyle(
+          backgroundColor: prymaryColor,
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+      child: Row(children: [
+        Icon(icon),
+        const SizedBox(
+          width: 15,
+        ),
+        Text(
+          text,
+          style: const TextStyle(
+              fontSize: 15, color: secondaryColor, fontWeight: FontWeight.w500),
+        )
+      ]),
     ),
   );
 }

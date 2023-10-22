@@ -55,9 +55,21 @@ class _cadastreState extends State<cadastre> {
             const SizedBox(height: 15),
             texFormField(label: 'Confirmar Senha', icon: Icons.key_outlined),
             const SizedBox(height: 15),
-            ElevatedButton(
-              onPressed: () {},
-              child: const Text('Cadastrar'),
+            Column(
+              children: [
+                ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      backgroundColor: backgroundColor),
+                  onPressed: () {},
+                  child: const Text(
+                    'Cadastrar',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: secondaryColor,
+                    ),
+                  ),
+                )
+              ],
             )
           ],
         )
