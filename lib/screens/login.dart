@@ -94,22 +94,27 @@ class LoginScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(
-            height: 47,
+            height: 45,
           ),
           ButtonTheme(
             child: Column(children: [
               elevatedButtonSocialGoogle(
-                icon: Icons.apple,
+                child: Image.network(
+                    'http://pngimg.com/uploads/google/google_PNG19635.png',
+                    fit: BoxFit.cover,
+                    width: 30,
+                    height: 30),
                 text: 'Entre com Google',
                 color: primaryColor,
                 secundaryColor: const MaterialStatePropertyAll(secondaryColor),
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 18),
               elevatedButtonSocialApple(
-                  icon: Icons.apple,
-                  text: 'Entre com Apple',
-                  color: primaryColor,
-                  prymaryColor: const MaterialStatePropertyAll(primaryColor)),
+                icon: Icons.apple,
+                text: 'Entre com Apple',
+                color: primaryColor,
+                prymaryColor: const MaterialStatePropertyAll(primaryColor),
+              ),
             ]),
           )
         ],

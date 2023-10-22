@@ -17,14 +17,21 @@ SizedBox elevatedButtonSocialApple({
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
       child: Row(children: [
-        Icon(icon),
+        Icon(
+          icon,
+          size: 24,
+        ),
         const SizedBox(
           width: 15,
         ),
-        Text(
-          text,
-          style: const TextStyle(
-              fontSize: 15, color: secondaryColor, fontWeight: FontWeight.w500),
+        Center(
+          child: Text(
+            text,
+            style: const TextStyle(
+                fontSize: 15,
+                color: secondaryColor,
+                fontWeight: FontWeight.w500),
+          ),
         )
       ]),
     ),
