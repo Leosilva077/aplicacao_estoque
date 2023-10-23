@@ -9,7 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-          decoration: BoxDecoration(gradient: gradient),
+          decoration: const BoxDecoration(gradient: gradient),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -30,7 +30,7 @@ class WelcomeScreen extends StatelessWidget {
               const Text(
                 'Bem-Vindo ao Controle de Estoque',
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 26,
                   fontWeight: FontWeight.bold,
                   color: Colors.white,
                 ),
@@ -49,7 +49,7 @@ class WelcomeScreen extends StatelessWidget {
                   // Navegue para a tela de registro
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   );
                 },
@@ -72,7 +72,7 @@ class WelcomeScreen extends StatelessWidget {
                   // Navegue para a tela de login
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
+                      builder: (context) => const LoginScreen(),
                     ),
                   );
                 },

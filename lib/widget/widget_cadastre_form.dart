@@ -1,27 +1,32 @@
 import 'package:flutter/material.dart';
 import '../theme/colors.dart';
 
-Container texForm({
+SizedBox texForm({
   required String label,
   required IconData icon,
 }) {
-  return Container(
-    decoration: const BoxDecoration(
-      color: Colors.white,
-      borderRadius: BorderRadius.only(
-        topLeft: Radius.circular(10),
-        bottomRight: Radius.circular(10),
-      ),
-    ),
+  return SizedBox(
     width: 340,
     height: 52,
     child: TextFormField(
       decoration: InputDecoration(
+        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(
+          color: backgroundColor )),
+        enabledBorder: const OutlineInputBorder(
+          borderRadius: BorderRadius.only(
+            bottomRight: Radius.circular(10),
+            topLeft: Radius.circular(10)
+          ),
+          borderSide: BorderSide(
+            color: backgroundColor
+          )
+        ),
         labelText: label,
         fillColor: Colors.white,
         labelStyle: const TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w300, color: primaryColor),
-        prefixIcon: Icon(icon, color: primaryColor),
+            fontSize: 15, fontWeight: FontWeight.w300,color: backgroundColor
+             ),
+        prefixIcon: Icon(icon, color: backgroundColor),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(10),
@@ -32,3 +37,5 @@ Container texForm({
     ),
   );
 }
+
+
