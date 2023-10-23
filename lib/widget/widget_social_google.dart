@@ -27,7 +27,7 @@ SizedBox elevatedButtonSocialGoogle({
         Text(
           text,
           style: const TextStyle(
-              fontSize: 15, color: TextColor, fontWeight: FontWeight.w500),
+              fontSize: 15, color: textColor, fontWeight: FontWeight.w500),
         ),
       ]),
     ),

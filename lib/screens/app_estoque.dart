@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/login.dart';
+import 'package:flutter_application_1/theme/colors.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -6,8 +8,8 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blue,
-      body: Center(
+      body: Container(
+        decoration: BoxDecoration(gradient: gradient),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -20,16 +22,16 @@ class WelcomeScreen extends StatelessWidget {
             const Text(
               'Bem-Vindo ao Controle de Estoque',
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 25,
                 fontWeight: FontWeight.bold,
                 color: Colors.white,
               ),
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 18),
             const Text(
               'Crie sua conta grátis ou faça login',
               style: TextStyle(
-                fontSize: 18,
+                fontSize: 15,
                 color: Colors.white,
               ),
             ),
@@ -39,7 +41,7 @@ class WelcomeScreen extends StatelessWidget {
                 // Navegue para a tela de registro
                 Navigator.of(context).push(
                   MaterialPageRoute(
-                    builder: (context) => RegisterScreen(),
+                    builder: (context) => LoginScreen(),
                   ),
                 );
               },
@@ -182,90 +184,6 @@ class RegisterScreen extends StatelessWidget {
                 }
               },
               child: const Text('Me Cadastrar'),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class LoginScreen extends StatelessWidget {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-
-  // Lista para armazenar informações de usuário (simulação)
-  final List<Map<String, String>> users = [];
-
-  LoginScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Faça Login'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            TextFormField(
-              controller: emailController,
-              decoration: const InputDecoration(
-                labelText: 'Email',
-              ),
-            ),
-            TextFormField(
-              controller: passwordController,
-              obscureText: true,
-              decoration: const InputDecoration(
-                labelText: 'Senha',
-              ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                final email = emailController.text;
-                final password = passwordController.text;
-
-                // Verifique se o email e a senha correspondem a um usuário na lista (simulação)
-                bool userFound = false;
-                for (final user in users) {
-                  if (user['email'] == email && user['password'] == password) {
-                    userFound = true;
-                    break;
-                  }
-                }
-
-                if (userFound) {
-                  // Navegue para a próxima tela (a ser implementada)
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const NextScreen(),
-                    ),
-                  );
-                } else {
-                  // Exiba a mensagem de erro se não encontrar correspondência
-                  showDialog(
-                    context: context,
-                    builder: (BuildContext context) {
-                      return AlertDialog(
-                        title: const Text('Erro de Login'),
-                        content: const Text('Email ou Senha Incorretos'),
-                        actions: <Widget>[
-                          ElevatedButton(
-                            onPressed: () {
-                              Navigator.of(context).pop();
-                            },
-                            child: const Text('OK'),
-                          ),
-                        ],
-                      );
-                    },
-                  );
-                }
-              },
-              child: const Text('Entrar'),
             ),
           ],
         ),
