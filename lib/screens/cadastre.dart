@@ -75,6 +75,14 @@ class _cadastreState extends State<cadastre> {
                 SizedBox(
                 height: 15,
                 ),
+                Text(
+                   '-------OU-------',
+                  style: TextStyle(
+                    color: Colors.green,
+                    fontSize: 18, 
+                    fontWeight:FontWeight.w500
+                  ),
+                ),
                 elevatedButtonSocialGoogle(
                 child: Image.network(
                     'http://pngimg.com/uploads/google/google_PNG19635.png',
