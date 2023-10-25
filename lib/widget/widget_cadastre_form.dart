@@ -10,22 +10,16 @@ SizedBox texForm({
     height: 52,
     child: TextFormField(
       decoration: InputDecoration(
-        focusedBorder: const OutlineInputBorder(borderSide: BorderSide(
-          color: backgroundColor )),
+        focusedBorder: const OutlineInputBorder(
+            borderSide: BorderSide(color: backgroundColor)),
         enabledBorder: const OutlineInputBorder(
-          borderRadius: BorderRadius.only(
-            bottomRight: Radius.circular(10),
-            topLeft: Radius.circular(10)
-          ),
-          borderSide: BorderSide(
-            color: backgroundColor
-          )
-        ),
+            borderRadius: BorderRadius.only(
+                bottomRight: Radius.circular(10), topLeft: Radius.circular(10)),
+            borderSide: BorderSide(color: backgroundColor)),
         labelText: label,
         fillColor: Colors.white,
         labelStyle: const TextStyle(
-            fontSize: 15, fontWeight: FontWeight.w300,color: backgroundColor
-             ),
+            fontSize: 15, fontWeight: FontWeight.w300, color: backgroundColor),
         prefixIcon: Icon(icon, color: backgroundColor),
         border: const OutlineInputBorder(
           borderRadius: BorderRadius.only(
@@ -37,5 +31,3 @@ SizedBox texForm({
     ),
   );
 }
-
-

@@ -27,6 +27,14 @@ class _cadastreState extends State<cadastre> {
           size: 40,
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.home),
+          )
+        ],
+      ),
       body: _getBody(),
       backgroundColor: secondaryColor,
     );
@@ -43,20 +51,16 @@ class _cadastreState extends State<cadastre> {
                 style: TextStyle(color: backgroundColor)),
           ],
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 25),
         Column(
           children: [
-            Form(
-                child: texForm(
-              label: 'Nome',
-              icon: Icons.person,
-            )),
-            const SizedBox(height: 15),
-           texForm(label: 'Name', icon: Icons.person),
+            texForm(label: 'Nome', icon: Icons.person_2_outlined),
+            const SizedBox(height: 1),
+            texForm(label: 'Email', icon: Icons.email_outlined),
             const SizedBox(height: 15),
             texForm(label: 'Senha', icon: Icons.key_outlined),
             const SizedBox(height: 15),
-            texForm(label: 'Confirmar Senha', icon: Icons.call),
+            texForm(label: 'Confirmar Senha', icon: Icons.call_end_outlined),
             const SizedBox(height: 15),
             Column(
               children: [
@@ -73,28 +77,36 @@ class _cadastreState extends State<cadastre> {
                   ),
                 ),
                 SizedBox(
-                height: 15,
+                  height: 15,
                 ),
                 Text(
-                   '-------OU-------',
+                  '-------OU-------',
                   style: TextStyle(
-                    color: Colors.green,
-                    fontSize: 18, 
-                    fontWeight:FontWeight.w500
-                  ),
+                      color: Colors.green,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500),
                 ),
                 elevatedButtonSocialGoogle(
-                child: Image.network(
-                    'http://pngimg.com/uploads/google/google_PNG19635.png',
-                    fit: BoxFit.cover,
-                    width: 30,
-                    height: 30),
-                text: 'Entre com Google',
-                color: primaryColor,
-                secundaryColor: const MaterialStatePropertyAll(secondaryColor),
-              ),
+                  child: Image.network(
+                      'http://pngimg.com/uploads/google/google_PNG19635.png',
+                      fit: BoxFit.cover,
+                      width: 30,
+                      height: 30),
+                  text: 'Entre com Google',
+                  color: primaryColor,
+                  secundaryColor:
+                      const MaterialStatePropertyAll(secondaryColor),
+                ),
+                SizedBox(
+                  height: 15,
+                ),
+                elevatedButtonSocialApple(
+                  icon: Icons.apple,
+                  text: 'Entre com Apple',
+                  color: secondaryColor,
+                  prymaryColor: const MaterialStatePropertyAll(primaryColor),
+                ),
               ],
-              
             )
           ],
         )
