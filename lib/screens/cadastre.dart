@@ -25,6 +25,14 @@ class _cadastreState extends State<cadastre> {
           size: 40,
         ),
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        fixedColor: Colors.white,
+        items: [
+          BottomNavigationBarItem(
+            icon: const Icon(Icons.home),
+          )
+        ],
+      ),
       body: _getBody(),
       backgroundColor: secondaryColor,
     );
@@ -41,17 +49,20 @@ class _cadastreState extends State<cadastre> {
                 style: TextStyle(color: backgroundColor)),
           ],
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 25),
         Column(
           children: [
+            Form(
+                child: texForm(
+              label: 'Nome',
+              icon: Icons.person,
+            )),
             const SizedBox(height: 15),
-            texForm(label: 'Nome', icon: Icons.person),
-            const SizedBox(height: 15),
-            texForm(label: 'Email', icon: Icons.email_outlined),
+            texForm(label: 'Name', icon: Icons.person),
             const SizedBox(height: 15),
             texForm(label: 'Senha', icon: Icons.key_outlined),
             const SizedBox(height: 15),
-            texForm(label: 'Numero', icon: Icons.call),
+            texForm(label: 'Confirmar Senha', icon: Icons.call),
             const SizedBox(height: 15),
             Column(
               children: [
@@ -67,10 +78,10 @@ class _cadastreState extends State<cadastre> {
                     ),
                   ),
                 ),
-                const SizedBox(
+                SizedBox(
                   height: 15,
                 ),
-                const Text(
+                Text(
                   '-------OU-------',
                   style: TextStyle(
                       color: Colors.green,
