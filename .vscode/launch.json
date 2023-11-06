@@ -6,6 +6,7 @@
     "configurations": [
         
         
+        
         {
             "name": "aplicacao_estoque",
             "request": "launch",

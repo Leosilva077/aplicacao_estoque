@@ -33,5 +33,3 @@ SizedBox elevatedButtonSocialGoogle({
     ),
   );
 }
-
-class ImageAsset {}
