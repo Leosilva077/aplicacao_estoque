@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/login.dart';
-import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

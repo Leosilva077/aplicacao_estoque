@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 import 'package:flutter_application_1/widget/widget_social_Apple.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 import '../widget/widget_form.dart';

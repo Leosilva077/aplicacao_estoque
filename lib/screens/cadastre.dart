@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 
@@ -27,9 +27,9 @@ class _cadastreState extends State<cadastre> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         fixedColor: Colors.white,
-        items: [
+        items: const [
           BottomNavigationBarItem(
-            icon: const Icon(Icons.home),
+            icon: Icon(Icons.home),
           )
         ],
       ),
@@ -78,10 +78,10 @@ class _cadastreState extends State<cadastre> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
-                Text(
+                const Text(
                   '-------OU-------',
                   style: TextStyle(
                       color: Colors.green,

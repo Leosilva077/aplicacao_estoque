@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/login.dart';
-import 'package:flutter_application_1/theme/colors.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -20,16 +20,16 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
+                  const Flexible(
                     child: CircleAvatar(
                       // Mude esta linha
-                      backgroundColor: secondaryColor, // Mude esta linha
-                      child: const Icon(
+                      backgroundColor: secondaryColor,
+                      radius: 112.5, // Mude esta linha
+                      child: Icon(
                         Icons.person,
                         size: 200,
                         color: linear3,
                       ),
-                      radius: 112.5, // Mude esta linha
                     ),
                   ),
                   const SizedBox(height: 80),
@@ -38,12 +38,12 @@ class WelcomeScreen extends StatelessWidget {
                     height: 40,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(130),
-                        color: Color.fromARGB(255, 255, 255, 255)),
-                    child: Center(
-                      child: const Text(
+                        color: linear2),
+                    child: const Center(
+                      child: Text(
                         'ENTRAR',
                         style: TextStyle(
-                          fontSize: 26,
+                          fontSize: 18,
                           fontWeight: FontWeight.w500,
                           color: Colors.black,
                         ),
