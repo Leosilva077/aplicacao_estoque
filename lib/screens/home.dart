@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class HomeApp extends StatefulWidget {
+  const HomeApp({super.key});
 
   @override
+  State<HomeApp> createState() => _HomeAppState();
+}
+
+class _HomeAppState extends State<HomeApp> {
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _getBody(),
-      backgroundColor: Colors.black,
-    );
-  }
-
-  Widget _getBody() {
-    return const SafeArea(
-      child: Column(),
-    );
+        body: Column(
+          children: [
+            Center(
+              child: Text("Home"),
+            ),
+          ],
+        ),
+        floatingActionButton: new FloatingActionButton(
+            elevation: 0.0,
+            child: new Icon(
+              Icons.add_outlined,
+              color: primaryColor,
+            ),
+            backgroundColor: backgroundColor,
+            onPressed: () {}));
   }
 }

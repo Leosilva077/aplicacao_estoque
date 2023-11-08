@@ -8,82 +8,90 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-          decoration: const BoxDecoration(gradient: gradient),
-          child: SizedBox(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  height: 225,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(180),
-                    color: secondaryColor,
-                  ),
-                  child: const Icon(
-                    Icons.person,
-                    size: 122,
-                    color: linear3,
-                  ),
-                ),
-                const SizedBox(height: 80),
-                const SizedBox(height: 18),
-                const Text(
-                  'Crie sua conta grátis ou faça login',
-                  style: TextStyle(
-                    fontSize: 15,
-                    color: Colors.white,
-                  ),
-                ),
-                const SizedBox(height: 40),
-                ElevatedButton(
-                  onPressed: () {
-                    // Navegue para a tela de registro
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                  ),
-                  child: const Text(
-                    'Crie sua conta grátis',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Navegue para a tela de login
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => const LoginScreen(),
-                      ),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.white,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 20, vertical: 10),
-                  ),
-                  child: const Text(
-                    'Faça login',
-                    style: TextStyle(
-                      fontSize: 18,
-                      color: Colors.blue,
-                    ),
-                  ),
-                ),
-              ],
+      body: SafeArea(
+        child: Stack(
+          children: [
+            Container(
+              decoration: const BoxDecoration(gradient: gradient),
             ),
-          )),
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Flexible(
+                    child: CircleAvatar(
+                      // Mude esta linha
+                      backgroundColor: secondaryColor, // Mude esta linha
+                      child: const Icon(
+                        Icons.person,
+                        size: 200,
+                        color: linear3,
+                      ),
+                      radius: 112.5, // Mude esta linha
+                    ),
+                  ),
+                  const SizedBox(height: 40),
+                  TextButton(
+                    onPressed: () {
+                      // Navegue para a tela de registro
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: linear2,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                    ),
+                    child: const Text(
+                      'Crie sua conta grátis',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: tertiaryColor,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  TextButton(
+                    onPressed: () {
+                      // Navegue para a tela de login
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
+                    style: TextButton.styleFrom(
+                      backgroundColor: linear2,
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 20, vertical: 10),
+                    ),
+                    child: const Text(
+                      'Faça login',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: secondaryColor,
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 25),
+                  const Text(
+                    'Crie sua conta grátis ou faça login',
+                    style: TextStyle(
+                      fontSize: 15,
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
