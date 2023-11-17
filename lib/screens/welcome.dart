@@ -20,16 +20,16 @@ class WelcomeScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Flexible(
+                  const Flexible(
                     child: CircleAvatar(
                       // Mude esta linha
-                      backgroundColor: secondaryColor, // Mude esta linha
-                      child: const Icon(
+                      backgroundColor: secondaryColor,
+                      radius: 112.5, // Mude esta linha
+                      child: Icon(
                         Icons.person,
                         size: 200,
                         color: linear3,
-                      ),
-                      radius: 112.5, // Mude esta linha
+                      ), // Mude esta linha
                     ),
                   ),
                   const SizedBox(height: 40),
@@ -78,7 +78,7 @@ class WelcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 25),
                   const Text(
                     'Crie sua conta grátis ou faça login',
                     style: TextStyle(

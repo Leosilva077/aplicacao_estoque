@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/login.dart';
 import 'package:flutter_application_1/theme/contants.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -18,13 +17,11 @@ class WelcomeScreen extends StatelessWidget {
               alignment: Alignment.center,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   const Flexible(
                     child: CircleAvatar(
-                      // Mude esta linha
                       backgroundColor: secondaryColor,
-                      radius: 112.5, // Mude esta linha
+                      radius: 112.5,
                       child: Icon(
                         Icons.person,
                         size: 200,
@@ -51,10 +48,12 @@ class WelcomeScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 40),
-                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                    Text('Entre ou crie sua conta gratuita',
-                        style: TextStyle(color: secondaryColor)),
-                  ])
+                  const Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text('Entre ou crie sua conta gratuita',
+                            style: TextStyle(color: secondaryColor)),
+                      ])
                 ],
               ),
             ),

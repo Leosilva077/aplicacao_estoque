@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/screens/categoria.dart';
 import 'package:flutter_application_1/screens/home.dart';
 import 'package:flutter_application_1/screens/profile.dart';
-import 'package:flutter_application_1/screens/reutilizavel.dart';
 import 'package:flutter_application_1/theme/contants.dart';
 
 class BottonNavigatioRender extends StatelessWidget {
@@ -10,7 +9,7 @@ class BottonNavigatioRender extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: BarNavigator(),
     );

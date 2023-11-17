@@ -11,9 +11,9 @@ class Routes extends StatelessWidget {
     return MaterialApp(
       initialRoute: "BarNavigator",
       routes: {
-        "TelaInicio": (context) => WelcomeScreen(),
-        "TelaLogin": (context) => LoginScreen(),
-        "BarNavigator": (context) => BottonNavigatioRender(),
+        "TelaInicio": (context) => const WelcomeScreen(),
+        "TelaLogin": (context) => const LoginScreen(),
+        "BarNavigator": (context) => const BottonNavigatioRender(),
       },
     );
   }
