@@ -5,14 +5,14 @@ import 'package:flutter_application_1/theme/contants.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 
-class cadastre extends StatefulWidget {
-  const cadastre({super.key});
+class CadastreScreen extends StatefulWidget {
+  const CadastreScreen({super.key});
 
   @override
-  State<cadastre> createState() => _cadastreState();
+  State<CadastreScreen> createState() => _cadastreState();
 }
 
-class _cadastreState extends State<cadastre> {
+class _cadastreState extends State<CadastreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

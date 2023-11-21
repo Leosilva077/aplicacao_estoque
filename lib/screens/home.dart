@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
 
 class HomeApp extends StatefulWidget {
   const HomeApp({super.key});
@@ -64,8 +63,7 @@ class _HomeAppState extends State<HomeApp> {
                     color: Colors.black,
                     width: 3,
                   ),
-                  borderRadius:
-                      BorderRadius.circular(10), // Adiciona bordas arredondadas
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextButton(
                   child: const Text(
@@ -79,15 +77,6 @@ class _HomeAppState extends State<HomeApp> {
             ],
           ),
         ],
-      ),
-      floatingActionButton: FloatingActionButton(
-        elevation: 0.0,
-        backgroundColor: backgroundColor,
-        onPressed: () {},
-        child: const Icon(
-          Icons.add_outlined,
-          color: primaryColor,
-        ),
       ),
     );
   }

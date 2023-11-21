@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/cadastrar_produto.dart';
 import 'package:flutter_application_1/screens/categoria.dart';
 import 'package:flutter_application_1/screens/home.dart';
 import 'package:flutter_application_1/screens/profile.dart';
@@ -29,6 +30,7 @@ class _BarNavigatorState extends State<BarNavigator> {
     HomeApp(),
     Categoria(),
     ProfileScrenn(),
+    ProductScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -43,35 +45,60 @@ class _BarNavigatorState extends State<BarNavigator> {
       body: Center(
         child: _widgets.elementAt(_selectedIndex),
       ),
-      bottomNavigationBar: _getBottonNavigationBar(),
-    );
-  }
-
-  BottomNavigationBar _getBottonNavigationBar() {
-    return BottomNavigationBar(
-      backgroundColor: backgroundColor,
-      items: const <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home_outlined,
-              color: primaryColor,
+      bottomNavigationBar: Theme(
+        data: Theme.of(context).copyWith(
+          // sets the background color of the `BottomNavigationBar`
+          canvasColor: Colors.green,
+        ),
+        child: BottomNavigationBar(
+          iconSize: 35,
+          showSelectedLabels: false,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                color: primaryColor,
+              ),
+              label: '',
+              backgroundColor: Colors.green,
             ),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.category_outlined,
-              color: primaryColor,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.category, color: primaryColor),
+              label: '',
+              backgroundColor: Colors.green,
             ),
-            label: ''),
-        BottomNavigationBarItem(
-            icon: Icon(
-              Icons.person,
-              color: primaryColor,
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person, color: primaryColor),
+              label: '',
+              backgroundColor: Colors.green,
             ),
-            label: '')
-      ],
-      currentIndex: _selectedIndex,
-      onTap: _onItemTapped,
+            BottomNavigationBarItem(
+              icon: Container(
+                width: 65,
+                height: 65,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(
+                      150), // Adiciona bordas arredondadas
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.5),
+                      spreadRadius: 1,
+                      blurRadius: 7,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+                child: Icon(Icons.add, color: Colors.black),
+              ),
+              label: '',
+              backgroundColor: Colors.green,
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _onItemTapped,
+        ),
+      ),
     );
   }
 }
