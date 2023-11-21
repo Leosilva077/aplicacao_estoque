@@ -3,6 +3,7 @@ import 'package:flutter_application_1/routes/bottonNavigationBar.router.dart';
 import 'package:flutter_application_1/screens/cadastrar_produto.dart';
 // ignore: unused_import
 import 'package:flutter_application_1/screens/cadastre.dart';
+import 'package:flutter_application_1/screens/home.dart';
 import 'package:flutter_application_1/screens/login.dart';
 import 'package:flutter_application_1/screens/welcome.dart';
 

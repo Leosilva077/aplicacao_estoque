@@ -54,7 +54,7 @@ class _BarNavigatorState extends State<BarNavigator> {
           iconSize: 35,
           showSelectedLabels: false,
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
                 color: primaryColor,
@@ -62,12 +62,12 @@ class _BarNavigatorState extends State<BarNavigator> {
               label: '',
               backgroundColor: Colors.green,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.category, color: primaryColor),
               label: '',
               backgroundColor: Colors.green,
             ),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               icon: Icon(Icons.person, color: primaryColor),
               label: '',
               backgroundColor: Colors.green,
@@ -85,11 +85,11 @@ class _BarNavigatorState extends State<BarNavigator> {
                       color: Colors.black.withOpacity(0.5),
                       spreadRadius: 1,
                       blurRadius: 7,
-                      offset: Offset(0, 3), // changes position of shadow
+                      offset: const Offset(0, 3), // changes position of shadow
                     ),
                   ],
                 ),
-                child: Icon(Icons.add, color: Colors.black),
+                child: const Icon(Icons.add, color: Colors.black),
               ),
               label: '',
               backgroundColor: Colors.green,
