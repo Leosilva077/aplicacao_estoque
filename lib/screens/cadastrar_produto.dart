@@ -39,13 +39,13 @@ Widget _getBody() {
     Form(
       child: Column(
         children: [
-          SizedBox(
+          Container(
             width: 360,
             height: 50,
             child: TextFormField(
               decoration: const InputDecoration(
                 label: Text(
-                  'Codigo',
+                  'Código',
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                 ),
                 focusColor: Colors.black,
@@ -99,31 +99,78 @@ Widget _getBody() {
                   ),
                 ),
               ),
-              SizedBox(),
-              SizedBox(
-                  width: 130,
-                  height: 60,
-                  child: TextFormField(
-                      decoration: const InputDecoration(
-                          label: Text(
-                            'Lote',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.w400),
-                          ),
-                          focusColor: Colors.black,
-                          focusedBorder: OutlineInputBorder(),
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.all(Radius.circular(15)),
-                          ))))
+              const SizedBox(width: 70),
+              Container(
+                width: 130,
+                height: 60,
+                child: TextFormField(
+                  decoration: const InputDecoration(
+                    label: Text(
+                      'Lote',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                    focusColor: Colors.black,
+                    focusedBorder: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    ),
+                  ),
+                ),
+              )
             ],
           ),
+          const SizedBox(
+            height: 25,
+          ),
           Container(
-              width: 361,
-              height: 50,
-              child: TextField(
+            width: 361,
+            height: 50,
+            child: TextField(
+              decoration: const InputDecoration(
+                label: Text(
+                  'Categoria',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                ),
+                focusColor: Colors.black,
+                focusedBorder: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(15),
+                  ),
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          Container(
+            width: 361,
+            height: 50,
+            child: TextField(
+              decoration: const InputDecoration(
+                  label: Text(
+                    'Data de vencimento',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  ),
+                  focusColor: Colors.black,
+                  focusedBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  )),
+            ),
+          ),
+          const SizedBox(
+            height: 25,
+          ),
+          Container(
+              width: 360,
+              height: 150,
+              child: const TextField(
                   decoration: const InputDecoration(
                       label: Text(
-                        'Categoria',
+                        'Descriçao',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w400),
                       ),
@@ -132,21 +179,9 @@ Widget _getBody() {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
                       )))),
-          Container(
-              width: 361,
-              height: 50,
-              child: TextField(
-                  decoration: const InputDecoration(
-                      label: Text(
-                        'Data de vencimento',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                      ),
-                      focusColor: Colors.black,
-                      focusedBorder: OutlineInputBorder(),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                      ))))
+          const SizedBox(
+            height: 25,
+          ),
         ],
       ),
     ),
