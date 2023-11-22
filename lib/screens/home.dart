@@ -14,12 +14,15 @@ class _HomeAppState extends State<HomeApp> {
     return Scaffold(
       body: Column(
         children: [
+          const SizedBox(
+            height: 50,
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Container(
-                width: 160,
-                height: 30,
+                width: 170,
+                height: 40,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 221, 226, 230),
                   boxShadow: [
@@ -35,7 +38,7 @@ class _HomeAppState extends State<HomeApp> {
                     width: 3,
                   ),
                   borderRadius:
-                      BorderRadius.circular(10), // Adiciona bordas arredondadas
+                      BorderRadius.circular(15), // Adiciona bordas arredondadas
                 ),
                 child: TextButton(
                   child: const Text(
@@ -46,10 +49,10 @@ class _HomeAppState extends State<HomeApp> {
                   onPressed: () {},
                 ),
               ),
-              const SizedBox(width: 20),
+              const SizedBox(width: 25),
               Container(
-                width: 160,
-                height: 30,
+                width: 170,
+                height: 40,
                 decoration: BoxDecoration(
                   color: const Color.fromARGB(255, 221, 226, 230),
                   boxShadow: [
@@ -64,7 +67,7 @@ class _HomeAppState extends State<HomeApp> {
                     color: Colors.black,
                     width: 3,
                   ),
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   child: const Text(
@@ -81,7 +84,7 @@ class _HomeAppState extends State<HomeApp> {
             child: GridView.count(
               crossAxisCount: 2,
               children: List.generate(45, (index) {
-                return Center(
+                return const Center(
                   child: Icon(
                     Icons.image,
                     color: linear3,

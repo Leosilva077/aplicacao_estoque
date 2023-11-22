@@ -12,7 +12,7 @@ class _CategoriaState extends State<Categoria> {
   Widget build(BuildContext context) {
     return const Scaffold(
       body: Center(
-        child: Text("categoria"),
+        child: Text("Categorias"),
       ),
     );
   }
