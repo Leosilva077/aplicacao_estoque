@@ -99,9 +99,7 @@ Widget _getBody() {
                   ),
                 ),
               ),
-              const SizedBox(
-                width: 40,
-              ),
+              SizedBox(),
               SizedBox(
                   width: 130,
                   height: 60,
