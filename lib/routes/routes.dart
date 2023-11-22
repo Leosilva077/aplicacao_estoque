@@ -13,7 +13,7 @@ class Routes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: "BarNavigator",
+      initialRoute: "TelaInicio",
       routes: {
         "TelaInicio": (context) => const WelcomeScreen(),
         "TelaLogin": (context) => const LoginScreen(),

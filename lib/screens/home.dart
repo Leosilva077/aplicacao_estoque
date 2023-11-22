@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/theme/contants.dart';
 
 class HomeApp extends StatefulWidget {
   const HomeApp({super.key});
@@ -76,20 +77,20 @@ class _HomeAppState extends State<HomeApp> {
               ),
             ],
           ),
-          Center(
-            child: Container(
-              child: GridView.count(
-                  crossAxisCount: 2,
-                  children: List.generate(100, (index) {
-                    return Center(
-                      child: Text(
-                        'Item $index',
-                        style: Theme.of(context).textTheme.headlineSmall,
-                      ),
-                    );
-                  })),
+          Expanded(
+            child: GridView.count(
+              crossAxisCount: 2,
+              children: List.generate(45, (index) {
+                return Center(
+                  child: Icon(
+                    Icons.image,
+                    color: linear3,
+                    size: 45,
+                  ),
+                );
+              }),
             ),
-          )
+          ),
         ],
       ),
     );

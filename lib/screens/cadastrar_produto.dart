@@ -13,7 +13,7 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro',
+        title: const Text('Cadastro de Produtos',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.w400)),
         centerTitle: true,
         elevation: 0,

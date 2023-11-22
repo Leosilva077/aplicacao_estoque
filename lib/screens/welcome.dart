@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/screens/cadastre.dart';
 import 'package:flutter_application_1/screens/login.dart';
 import 'package:flutter_application_1/theme/contants.dart';
 
@@ -61,7 +62,7 @@ class WelcomeScreen extends StatelessWidget {
                       // Navegue para a tela de login
                       Navigator.of(context).push(
                         MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
+                          builder: (context) => const CadastreScreen(),
                         ),
                       );
                     },
