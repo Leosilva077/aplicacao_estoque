@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/contants.dart';
+import 'package:intl/intl.dart';
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key});
@@ -9,6 +10,9 @@ class ProductScreen extends StatefulWidget {
 }
 
 class _ProductScreenState extends State<ProductScreen> {
+  DateTime selectedDate = DateTime.now();
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,150 +31,98 @@ class _ProductScreenState extends State<ProductScreen> {
           size: 35,
         ),
       ),
-      body: _getBody(),
+      body: SingleChildScrollView(child: _getBody()),
       backgroundColor: secondaryColor,
     );
   }
-}
 
-Widget _getBody() {
-  return SafeArea(
-      child: Column(children: [
-    Form(
-      child: Column(
-        children: [
-          Container(
-            width: 360,
-            height: 50,
-            child: TextFormField(
-              decoration: const InputDecoration(
-                label: Text(
-                  'Código',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                ),
-                focusColor: Colors.black,
-                focusedBorder: OutlineInputBorder(),
-                border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
-                    ),
-                    borderSide: BorderSide(color: Colors.black)),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          SizedBox(
-            width: 361,
-            height: 50,
-            child: TextFormField(
+  Widget _getBody() {
+    return SafeArea(
+        child: Column(children: [
+      Form(
+        key: _formKey,
+        child: Column(
+          children: [
+            SizedBox(
+              width: 360,
+              height: 50,
+              child: TextFormField(
                 decoration: const InputDecoration(
-                    label: Text(
-                      'Nome',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    focusColor: Colors.black,
-                    focusedBorder: OutlineInputBorder(),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))))),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                width: 130,
-                height: 60,
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    label: Text(
-                      'Qtd',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    focusColor: Colors.black,
-                    focusedBorder: OutlineInputBorder(),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15))),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 70),
-              Container(
-                width: 130,
-                height: 60,
-                child: TextFormField(
-                  decoration: const InputDecoration(
-                    label: Text(
-                      'Lote',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    focusColor: Colors.black,
-                    focusedBorder: OutlineInputBorder(),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    ),
-                  ),
-                ),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          Container(
-            width: 361,
-            height: 50,
-            child: TextField(
-              decoration: const InputDecoration(
-                label: Text(
-                  'Categoria',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                ),
-                focusColor: Colors.black,
-                focusedBorder: OutlineInputBorder(),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(15),
-                  ),
-                ),
-              ),
-            ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          Container(
-            width: 361,
-            height: 50,
-            child: TextField(
-              decoration: const InputDecoration(
                   label: Text(
-                    'Data de vencimento',
+                    'Código',
                     style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
                   ),
                   focusColor: Colors.black,
                   focusedBorder: OutlineInputBorder(),
                   border: OutlineInputBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(15)),
-                  )),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(15),
+                      ),
+                      borderSide: BorderSide(color: Colors.black)),
+                ),
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Por favor, insira o código do produto';
+                  }
+                  return null;
+                },
+              ),
             ),
-          ),
-          const SizedBox(
-            height: 25,
-          ),
-          Container(
-              width: 360,
-              height: 150,
-              child: const TextField(
+            const SizedBox(
+              height: 25,
+            ),
+            SizedBox(
+              width: 361,
+              height: 50,
+              child: TextFormField(
                   decoration: const InputDecoration(
                       label: Text(
-                        'Descriçao',
+                        'Nome',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      focusColor: Colors.black,
+                      focusedBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)))),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Por favor, insira o nome do produto';
+                    }
+                    return null;
+                  }),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 130,
+                  height: 60,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      label: Text(
+                        'Qtd',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      focusColor: Colors.black,
+                      focusedBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 70),
+                SizedBox(
+                  width: 130,
+                  height: 60,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      label: Text(
+                        'Lote',
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.w400),
                       ),
@@ -178,12 +130,133 @@ Widget _getBody() {
                       focusedBorder: OutlineInputBorder(),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(15)),
-                      )))),
-          const SizedBox(
-            height: 25,
-          ),
-        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            SizedBox(
+              width: 361,
+              height: 50,
+              child: DropdownButtonFormField<String>(
+                decoration: const InputDecoration(
+                  label: Text(
+                    'Categoria',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                  ),
+                  focusColor: Colors.black,
+                  focusedBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(15),
+                    ),
+                  ),
+                ),
+                items: <String>[
+                  'Bebidas',
+                  'Carnes ',
+                  'Doces',
+                  'Frutas',
+                  'Massas',
+                  'Laticínios',
+                  'Óleos e gorduras',
+                  'Cereais e pães ',
+                  'Pescados',
+                  'Grãos'
+                ].map<DropdownMenuItem<String>>((String value) {
+                  return DropdownMenuItem<String>(
+                    value: value,
+                    child: Text(value),
+                  );
+                }).toList(),
+                onChanged: (String? newValue) {},
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            SizedBox(
+              width: 361,
+              height: 50,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    label: Text(
+                      'Data de vencimento',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                    focusColor: Colors.black,
+                    focusedBorder: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    )),
+                controller: TextEditingController()
+                  ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+                onTap: () async {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  final DateTime? picked = await showDatePicker(
+                    context: context,
+                    initialDate: selectedDate,
+                    firstDate: DateTime(2015, 8),
+                    lastDate: DateTime(2101),
+                  );
+                  if (picked != null && picked != selectedDate) {
+                    setState(() {
+                      selectedDate = picked;
+                    });
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Por favor, insira a data de vencimento';
+                  }
+                  return null;
+                },
+              ),
+            ),
+            const SizedBox(
+              height: 25,
+            ),
+            const SizedBox(
+                width: 360,
+                height: 100,
+                child: TextField(
+                    decoration: InputDecoration(
+                        label: Text(
+                          'Descriçao',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w400),
+                        ),
+                        focusColor: Colors.black,
+                        focusedBorder: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        )))),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              width: 167,
+              height: 45,
+              decoration: const BoxDecoration(
+                  color: backgroundColor,
+                  borderRadius: BorderRadius.all(Radius.circular(10))),
+              child: ElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // Processar os dados.
+                  }
+                },
+                child: const Text('Cadastrar'),
+              ),
+            ),
+          ],
+        ),
       ),
-    ),
-  ]));
+    ]));
+  }
 }
