@@ -23,65 +23,70 @@ class WelcomeScreen extends StatelessWidget {
                 children: <Widget>[
                   const Flexible(
                     child: CircleAvatar(
-                      // Mude esta linha
                       backgroundColor: secondaryColor,
-                      radius: 112.5, // Mude esta linha
+                      radius: 112.5,
                       child: Icon(
                         Icons.person,
                         size: 200,
                         color: linear3,
-                      ), // Mude esta linha
+                      ),
                     ),
                   ),
                   const SizedBox(height: 40),
-                  TextButton(
-                    onPressed: () {
-                      // Navegue para a tela de registro
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const LoginScreen(),
+                  Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginScreen(),
+                          ),
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: linear2,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                      ),
+                      child: const Text(
+                        'ENTRAR ',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: tertiaryColor,
                         ),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: linear2,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                    ),
-                    child: const Text(
-                      'Crie sua conta grátis',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: tertiaryColor,
                       ),
                     ),
                   ),
                   const SizedBox(height: 20),
-                  TextButton(
-                    onPressed: () {
-                      // Navegue para a tela de login
-                      Navigator.of(context).push(
-                        MaterialPageRoute(
-                          builder: (context) => const CadastreScreen(),
+                  Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.circular(30.0),
+                    child: TextButton(
+                      onPressed: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const CadastreScreen(),
+                          ),
+                        );
+                      },
+                      style: TextButton.styleFrom(
+                        backgroundColor: linear2,
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 20, vertical: 10),
+                      ),
+                      child: const Text(
+                        'CRIAR CONTA',
+                        style: TextStyle(
+                          fontSize: 18,
+                          color: primaryColor,
                         ),
-                      );
-                    },
-                    style: TextButton.styleFrom(
-                      backgroundColor: linear2,
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: 20, vertical: 10),
-                    ),
-                    child: const Text(
-                      'Faça login',
-                      style: TextStyle(
-                        fontSize: 18,
-                        color: secondaryColor,
                       ),
                     ),
                   ),
                   const SizedBox(height: 25),
                   const Text(
-                    'Crie sua conta grátis ou faça login',
+                    'Entre ou crie sua conta gratuita',
                     style: TextStyle(
                       fontSize: 15,
                       color: Colors.white,

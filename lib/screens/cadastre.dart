@@ -25,14 +25,6 @@ class _cadastreState extends State<CadastreScreen> {
           size: 40,
         ),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        fixedColor: Colors.white,
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-          )
-        ],
-      ),
       body: _getBody(),
       backgroundColor: secondaryColor,
     );
