@@ -17,11 +17,11 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cadastro de Produtos',
-            style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.w400,
-                color: Colors.black)),
+        title: const Text(
+          'Cadastro de Produtos',
+          style: TextStyle(
+              fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black),
+        ),
         centerTitle: true,
         elevation: 0,
         backgroundColor: secondaryColor,

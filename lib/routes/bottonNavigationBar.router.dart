@@ -28,7 +28,7 @@ class _BarNavigatorState extends State<BarNavigator> {
   int _selectedIndex = 0;
   static const List<Widget> _widgets = <Widget>[
     HomeApp(),
-    Categoria(),
+    CategoriaScreen(),
     ProfileScrenn(),
     ProductScreen(),
   ];
@@ -47,7 +47,6 @@ class _BarNavigatorState extends State<BarNavigator> {
       ),
       bottomNavigationBar: Theme(
         data: Theme.of(context).copyWith(
-          // sets the background color of the `BottomNavigationBar`
           canvasColor: Colors.green,
         ),
         child: BottomNavigationBar(
@@ -78,14 +77,13 @@ class _BarNavigatorState extends State<BarNavigator> {
                 height: 65,
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(
-                      150), // Adiciona bordas arredondadas
+                  borderRadius: BorderRadius.circular(150),
                   boxShadow: [
                     BoxShadow(
                       color: Colors.black.withOpacity(0.5),
                       spreadRadius: 1,
                       blurRadius: 7,
-                      offset: const Offset(0, 3), // changes position of shadow
+                      offset: const Offset(0, 3),
                     ),
                   ],
                 ),

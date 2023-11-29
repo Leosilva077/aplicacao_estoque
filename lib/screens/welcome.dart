@@ -27,7 +27,7 @@ class WelcomeScreen extends StatelessWidget {
                       radius: 112.5,
                       child: Icon(
                         Icons.person,
-                        size: 200,
+                        size: 175,
                         color: linear3,
                       ),
                     ),

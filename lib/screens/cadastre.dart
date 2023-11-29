@@ -24,7 +24,7 @@ class _cadastreState extends State<CadastreScreen> {
         leading: const Icon(
           Icons.arrow_back,
           color: primaryColor,
-          size: 40,
+          size: 35,
         ),
       ),
       body: _getBody(),
@@ -75,7 +75,6 @@ class _cadastreState extends State<CadastreScreen> {
                 const SizedBox(
                   height: 15,
                 ),
-
                 const Text(
                   '-------OU-------',
                   style: TextStyle(
@@ -83,7 +82,7 @@ class _cadastreState extends State<CadastreScreen> {
                       fontSize: 18,
                       fontWeight: FontWeight.w500),
                 ),
-                SizedBox( height: 40),
+                const SizedBox(height: 40),
                 elevatedButtonSocialGoogle(
                   child: Image.network(
                       'http://pngimg.com/uploads/google/google_PNG19635.png',
@@ -95,13 +94,13 @@ class _cadastreState extends State<CadastreScreen> {
                   secundaryColor:
                       const MaterialStatePropertyAll(secondaryColor),
                 ),
-                 const SizedBox(height: 18),
+                const SizedBox(height: 18),
                 elevatedButtonSocialApple(
-                icon: Icons.apple,
-                text: 'Entre com Apple',
-                color: primaryColor,
-                prymaryColor: const MaterialStatePropertyAll(primaryColor),
-              ),
+                  icon: Icons.apple,
+                  text: 'Entre com Apple',
+                  color: primaryColor,
+                  prymaryColor: const MaterialStatePropertyAll(primaryColor),
+                ),
               ],
             )
           ],
