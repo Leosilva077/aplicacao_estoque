@@ -5,6 +5,8 @@ import 'package:flutter_application_1/theme/contants.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 
+import '../widget/widget_social_Apple.dart';
+
 class CadastreScreen extends StatefulWidget {
   const CadastreScreen({super.key});
 
@@ -72,7 +74,8 @@ class _cadastreState extends State<CadastreScreen> {
                 ),
                 const SizedBox(
                   height: 15,
-                ),
+                ),Leosilva077
+
                 const Text(
                   '-------OU-------',
                   style: TextStyle(
@@ -80,6 +83,7 @@ class _cadastreState extends State<CadastreScreen> {
                       fontSize: 18,
                       fontWeight: FontWeight.w500),
                 ),
+                SizedBox( height: 40),
                 elevatedButtonSocialGoogle(
                   child: Image.network(
                       'http://pngimg.com/uploads/google/google_PNG19635.png',
@@ -91,6 +95,13 @@ class _cadastreState extends State<CadastreScreen> {
                   secundaryColor:
                       const MaterialStatePropertyAll(secondaryColor),
                 ),
+                 const SizedBox(height: 18),
+                elevatedButtonSocialApple(
+                icon: Icons.apple,
+                text: 'Entre com Apple',
+                color: primaryColor,
+                prymaryColor: const MaterialStatePropertyAll(primaryColor),
+              ),
               ],
             )
           ],
