@@ -70,6 +70,7 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             const SizedBox(
               height: 25,
+              
             ),
             SizedBox(
               width: 361,
@@ -95,52 +96,24 @@ class _ProductScreenState extends State<ProductScreen> {
             const SizedBox(
               height: 25,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 130,
-                  height: 60,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      label: Text(
-                        'Qtd',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                      ),
-                      focusColor: Colors.black,
-                      focusedBorder: OutlineInputBorder(),
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15))),
-                    ),
-                  ),
-                ),
-                const SizedBox(width: 70),
-                SizedBox(
-                  width: 130,
-                  height: 60,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      label: Text(
-                        'Lote',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                      ),
-                      focusColor: Colors.black,
-                      focusedBorder: OutlineInputBorder(),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
             const SizedBox(
-              height: 25,
-            ),
-            SizedBox(
-              width: 361,
+                width: 360,
+                height: 100,
+                child: TextField(
+                    decoration: InputDecoration(
+                        label: Text(
+                          'Descriçao',
+                          style: TextStyle(
+                              fontSize: 18, fontWeight: FontWeight.w400),
+                        ),
+                        focusColor: Colors.black,
+                        focusedBorder: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        )))),
+                        
+                        Container(
+              width: 360,
               height: 50,
               child: DropdownButtonFormField<String>(
                 decoration: const InputDecoration(
@@ -176,12 +149,105 @@ class _ProductScreenState extends State<ProductScreen> {
                 onChanged: (String? newValue) {},
               ),
             ),
-            const SizedBox(
-              height: 25,
+            SizedBox(
+              height: 20,
+            ),
+             SizedBox(
+                  width: 360,
+                  height: 50,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      label: Text(
+                        'Lote',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      focusColor: Colors.black,
+                      focusedBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15)),
+                      ),
+                    ),
+                  ),
+                ),
+           
+                SizedBox(
+                  height: 20,
+                ),
+                        
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  width: 20,
+                ),
+                SizedBox(
+                  
+              width: 100,
+              height:60,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                    label: Text(
+                      'Data de fabricação',
+                      style:
+                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    ),
+                    focusColor: Colors.black,
+                    focusedBorder: OutlineInputBorder(),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15)),
+                    )),
+                controller: TextEditingController()
+                  ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+                onTap: () async {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  final DateTime? picked = await showDatePicker(
+                    context: context,
+                    initialDate: selectedDate,
+                    firstDate: DateTime(2015, 8),
+                    lastDate: DateTime(2101),
+                  );
+                  if (picked != null && picked != selectedDate) {
+                    setState(() {
+                      selectedDate = picked;
+                    });
+                  }
+                },
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Por favor, insira a data de fabricação';
+                  }
+                  return null;
+                },
+              ),
             ),
             SizedBox(
-              width: 361,
-              height: 50,
+              width: 10,
+            ),
+            
+                SizedBox(
+                  width: 100,
+                  height: 60,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                      label: Text(
+                        'Qtd',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400),
+                      ),
+                      focusColor: Colors.black,
+                      focusedBorder: OutlineInputBorder(),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15))),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                SizedBox(
+              width: 100,
+              height:60,
               child: TextFormField(
                 decoration: const InputDecoration(
                     label: Text(
@@ -212,38 +278,22 @@ class _ProductScreenState extends State<ProductScreen> {
                 },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Por favor, insira a data de vencimento';
+                    return 'Por favor, insira a data de fabricação';
                   }
                   return null;
                 },
               ),
             ),
-            const SizedBox(
-              height: 25,
+                const SizedBox(width: 70),
+              
+              ],
             ),
-            const SizedBox(
-                width: 360,
-                height: 100,
-                child: TextField(
-                    decoration: InputDecoration(
-                        label: Text(
-                          'Descriçao',
-                          style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400),
-                        ),
-                        focusColor: Colors.black,
-                        focusedBorder: OutlineInputBorder(),
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(15)),
-                        )))),
-            const SizedBox(
-              height: 20,
-            ),
+            
             Container(
               width: 167,
               height: 45,
               decoration: const BoxDecoration(
-                  color: backgroundColor,
+                  color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: ElevatedButton(
                 onPressed: () {

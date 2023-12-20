@@ -38,7 +38,7 @@ class _HomeAppState extends State<HomeApp> {
                     width: 3,
                   ),
                   borderRadius:
-                      BorderRadius.circular(15), // Adiciona bordas arredondadas
+                      BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   child: const Text(
