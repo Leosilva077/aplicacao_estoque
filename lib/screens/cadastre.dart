@@ -33,7 +33,6 @@ class _cadastreState extends State<CadastreScreen> {
   Widget _getBody() {
     return SafeArea(
         child: SingleChildScrollView(
-      // Adicione o SingleChildScrollView aqui
       child: Column(
         children: [
           const Row(
