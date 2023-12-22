@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/contants.dart';
 import 'package:intl/intl.dart';
+import 'package:firebase_database/firebase_database.dart';
+
+final databaseReference = FirebaseDatabase.instance.ref();
 
 class ProductScreen extends StatefulWidget {
   const ProductScreen({super.key});
@@ -12,6 +15,28 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
   DateTime selectedDate = DateTime.now();
   final _formKey = GlobalKey<FormState>();
+
+  final codigoController = TextEditingController();
+  final nomeController = TextEditingController();
+  final descricaoController = TextEditingController();
+  final categoriaController = TextEditingController();
+  final loteController = TextEditingController();
+  final dataFabricacaoController = TextEditingController();
+  final quantidadeController = TextEditingController();
+  final dataVencimentoController = TextEditingController();
+
+  void sendData() {
+    databaseReference.child("Produtos").set({
+      'codigo': codigoController.text,
+      'nome': nomeController.text,
+      'descricao': descricaoController.text,
+      'categoria': categoriaController.text,
+      'lote': loteController.text,
+      'dataFabricacao': dataFabricacaoController.text,
+      'quantidade': quantidadeController.text,
+      'dataVencimento': dataVencimentoController.text
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +72,11 @@ class _ProductScreenState extends State<ProductScreen> {
               width: 360,
               height: 50,
               child: TextFormField(
+                controller: codigoController,
                 decoration: const InputDecoration(
                   label: Text(
                     'Código',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                   ),
                   focusColor: Colors.black,
                   focusedBorder: OutlineInputBorder(),
@@ -65,12 +91,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     return 'Por favor, insira o código do produto';
                   }
                   return null;
-                },
+                }, // Se valor for fazio ou valor for nulo
               ),
             ),
             const SizedBox(
               height: 25,
-              
             ),
             SizedBox(
               width: 361,
@@ -80,7 +105,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       label: Text(
                         'Nome',
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
+                            fontSize: 15, fontWeight: FontWeight.w400),
                       ),
                       focusColor: Colors.black,
                       focusedBorder: OutlineInputBorder(),
@@ -98,28 +123,30 @@ class _ProductScreenState extends State<ProductScreen> {
             ),
             const SizedBox(
                 width: 360,
-                height: 100,
+                height: 50,
                 child: TextField(
                     decoration: InputDecoration(
                         label: Text(
                           'Descriçao',
                           style: TextStyle(
-                              fontSize: 18, fontWeight: FontWeight.w400),
+                              fontSize: 15, fontWeight: FontWeight.w400),
                         ),
                         focusColor: Colors.black,
                         focusedBorder: OutlineInputBorder(),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         )))),
-                        
-                        Container(
+            const SizedBox(
+              height: 25,
+            ),
+            SizedBox(
               width: 360,
               height: 50,
               child: DropdownButtonFormField<String>(
                 decoration: const InputDecoration(
                   label: Text(
                     'Categoria',
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
                   ),
                   focusColor: Colors.black,
                   focusedBorder: OutlineInputBorder(),
@@ -149,32 +176,29 @@ class _ProductScreenState extends State<ProductScreen> {
                 onChanged: (String? newValue) {},
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            SizedBox(
+              width: 360,
+              height: 50,
+              child: TextFormField(
+                decoration: const InputDecoration(
+                  label: Text(
+                    'Lote',
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
+                  ),
+                  focusColor: Colors.black,
+                  focusedBorder: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15)),
+                  ),
+                ),
+              ),
+            ),
             SizedBox(
               height: 20,
             ),
-             SizedBox(
-                  width: 360,
-                  height: 50,
-                  child: TextFormField(
-                    decoration: const InputDecoration(
-                      label: Text(
-                        'Lote',
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
-                      ),
-                      focusColor: Colors.black,
-                      focusedBorder: OutlineInputBorder(),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(15)),
-                      ),
-                    ),
-                  ),
-                ),
-           
-                SizedBox(
-                  height: 20,
-                ),
-                        
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -182,49 +206,47 @@ class _ProductScreenState extends State<ProductScreen> {
                   width: 20,
                 ),
                 SizedBox(
-                  
-              width: 100,
-              height:60,
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    label: Text(
-                      'Data de fabricação',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    focusColor: Colors.black,
-                    focusedBorder: OutlineInputBorder(),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    )),
-                controller: TextEditingController()
-                  ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
-                onTap: () async {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                  final DateTime? picked = await showDatePicker(
-                    context: context,
-                    initialDate: selectedDate,
-                    firstDate: DateTime(2015, 8),
-                    lastDate: DateTime(2101),
-                  );
-                  if (picked != null && picked != selectedDate) {
-                    setState(() {
-                      selectedDate = picked;
-                    });
-                  }
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor, insira a data de fabricação';
-                  }
-                  return null;
-                },
-              ),
-            ),
-            SizedBox(
-              width: 10,
-            ),
-            
+                  width: 100,
+                  height: 60,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        label: Text(
+                          'Data de fabricação',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w400),
+                        ),
+                        focusColor: Colors.black,
+                        focusedBorder: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        )),
+                    controller: TextEditingController()
+                      ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+                    onTap: () async {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      final DateTime? picked = await showDatePicker(
+                        context: context,
+                        initialDate: selectedDate,
+                        firstDate: DateTime(2015, 8),
+                        lastDate: DateTime(2101),
+                      );
+                      if (picked != null && picked != selectedDate) {
+                        setState(() {
+                          selectedDate = picked;
+                        });
+                      }
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira a data de fabricação';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
                 SizedBox(
                   width: 100,
                   height: 60,
@@ -233,7 +255,7 @@ class _ProductScreenState extends State<ProductScreen> {
                       label: Text(
                         'Qtd',
                         style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.w400),
+                            fontSize: 15, fontWeight: FontWeight.w400),
                       ),
                       focusColor: Colors.black,
                       focusedBorder: OutlineInputBorder(),
@@ -246,51 +268,49 @@ class _ProductScreenState extends State<ProductScreen> {
                   width: 10,
                 ),
                 SizedBox(
-              width: 100,
-              height:60,
-              child: TextFormField(
-                decoration: const InputDecoration(
-                    label: Text(
-                      'Data de vencimento',
-                      style:
-                          TextStyle(fontSize: 18, fontWeight: FontWeight.w400),
-                    ),
-                    focusColor: Colors.black,
-                    focusedBorder: OutlineInputBorder(),
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(15)),
-                    )),
-                controller: TextEditingController()
-                  ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
-                onTap: () async {
-                  FocusScope.of(context).requestFocus(FocusNode());
-                  final DateTime? picked = await showDatePicker(
-                    context: context,
-                    initialDate: selectedDate,
-                    firstDate: DateTime(2015, 8),
-                    lastDate: DateTime(2101),
-                  );
-                  if (picked != null && picked != selectedDate) {
-                    setState(() {
-                      selectedDate = picked;
-                    });
-                  }
-                },
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Por favor, insira a data de fabricação';
-                  }
-                  return null;
-                },
-              ),
-            ),
+                  width: 100,
+                  height: 60,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        label: Text(
+                          'Data de vencimento',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w400),
+                        ),
+                        focusColor: Colors.black,
+                        focusedBorder: OutlineInputBorder(),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15)),
+                        )),
+                    controller: TextEditingController()
+                      ..text = DateFormat('yyyy-MM-dd').format(selectedDate),
+                    onTap: () async {
+                      FocusScope.of(context).requestFocus(FocusNode());
+                      final DateTime? picked = await showDatePicker(
+                        context: context,
+                        initialDate: selectedDate,
+                        firstDate: DateTime(2015, 8),
+                        lastDate: DateTime(2101),
+                      );
+                      if (picked != null && picked != selectedDate) {
+                        setState(() {
+                          selectedDate = picked;
+                        });
+                      }
+                    },
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, insira a data de fabricação';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
                 const SizedBox(width: 70),
-              
               ],
             ),
-            
             Container(
-              width: 167,
+              width: 170,
               height: 45,
               decoration: const BoxDecoration(
                   color: Colors.white,
@@ -298,7 +318,7 @@ class _ProductScreenState extends State<ProductScreen> {
               child: ElevatedButton(
                 onPressed: () {
                   if (_formKey.currentState!.validate()) {
-                    // Processar os dados.
+                    sendData();
                   }
                 },
                 child: const Text('Cadastrar'),
