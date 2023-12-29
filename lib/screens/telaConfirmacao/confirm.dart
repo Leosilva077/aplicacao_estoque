@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 
 class ConfirmacaoScreen extends StatefulWidget {

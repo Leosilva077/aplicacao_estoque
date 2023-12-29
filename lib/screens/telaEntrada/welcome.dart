@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/cadastre.dart';
-import 'package:flutter_application_1/screens/login.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/screens/telaCadastro/cadastre.dart';
+import 'package:flutter_application_1/screens/telaLogin/login.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

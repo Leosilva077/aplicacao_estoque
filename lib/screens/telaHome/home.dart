@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 
 class HomeApp extends StatefulWidget {
   const HomeApp({super.key});
@@ -37,8 +37,7 @@ class _HomeAppState extends State<HomeApp> {
                     color: Colors.black,
                     width: 3,
                   ),
-                  borderRadius:
-                      BorderRadius.circular(15),
+                  borderRadius: BorderRadius.circular(15),
                 ),
                 child: TextButton(
                   child: const Text(

@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 
-import '../widget/widget_social_Apple.dart';
+import '../../widget/widget_social_Apple.dart';
 
 class CadastreScreen extends StatefulWidget {
   const CadastreScreen({super.key});
 
   @override
-  State<CadastreScreen> createState() => _cadastreState();
+  State<CadastreScreen> createState() => _CadastreState();
 }
 
-class _cadastreState extends State<CadastreScreen> {
+class _CadastreState extends State<CadastreScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../theme/contants.dart';
+import '../theme/consts.dart';
 
 SizedBox texForm({
   required String label,

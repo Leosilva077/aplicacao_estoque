@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 import 'package:intl/intl.dart';
 import 'package:firebase_database/firebase_database.dart';
 
@@ -196,15 +196,12 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
               ),
             ),
-            SizedBox(
-              height: 20,
+            const SizedBox(
+              height: 25,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(
-                  width: 20,
-                ),
                 SizedBox(
                   width: 100,
                   height: 60,
@@ -244,8 +241,8 @@ class _ProductScreenState extends State<ProductScreen> {
                     },
                   ),
                 ),
-                SizedBox(
-                  width: 10,
+                const SizedBox(
+                  width: 20,
                 ),
                 SizedBox(
                   width: 100,
@@ -264,8 +261,8 @@ class _ProductScreenState extends State<ProductScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  width: 10,
+                const SizedBox(
+                  width: 25,
                 ),
                 SizedBox(
                   width: 100,
@@ -306,7 +303,6 @@ class _ProductScreenState extends State<ProductScreen> {
                     },
                   ),
                 ),
-                const SizedBox(width: 70),
               ],
             ),
             Container(

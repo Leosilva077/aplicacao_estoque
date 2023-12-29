@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/cadastrar_produto.dart';
-import 'package:flutter_application_1/screens/categoria.dart';
-import 'package:flutter_application_1/screens/home.dart';
-import 'package:flutter_application_1/screens/profile.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/screens/telaProduto/cadastrar_produto.dart';
+import 'package:flutter_application_1/screens/telaCategoria/categoria.dart';
+import 'package:flutter_application_1/screens/telaHome/home.dart';
+import 'package:flutter_application_1/screens/telaPerfil/profile.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 
 class BottonNavigatioRender extends StatelessWidget {
   const BottonNavigatioRender({super.key});

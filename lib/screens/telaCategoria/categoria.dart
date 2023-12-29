@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/contants.dart';
+import 'package:flutter_application_1/theme/consts.dart';
 
 class CategoriaScreen extends StatefulWidget {
   const CategoriaScreen({super.key});
@@ -9,7 +9,6 @@ class CategoriaScreen extends StatefulWidget {
 }
 
 class _CategoriaScreenState extends State<CategoriaScreen> {
-  // Adicionando uma lista de caminhos de imagem
   final List<String> imagePaths = [
     'assets/icon/bebidas.png',
     'assets/icon/carnes.png',
