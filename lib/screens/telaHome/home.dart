@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/theme/consts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_application_1/screens/telaDetalesProduto/details.dart';
 
 class HomeApp extends StatefulWidget {
-  const HomeApp({super.key});
+  const HomeApp({Key? key}) : super(key: key);
 
   @override
   State<HomeApp> createState() => _HomeAppState();
@@ -80,17 +81,42 @@ class _HomeAppState extends State<HomeApp> {
             ],
           ),
           Expanded(
-            child: GridView.count(
-              crossAxisCount: 2,
-              children: List.generate(45, (index) {
-                return const Center(
-                  child: Icon(
-                    Icons.image,
-                    color: linear3,
-                    size: 45,
-                  ),
+            child: StreamBuilder<QuerySnapshot>(
+              stream:
+                  FirebaseFirestore.instance.collection('produtos').snapshots(),
+              builder: (BuildContext context,
+                  AsyncSnapshot<QuerySnapshot> snapshot) {
+                if (snapshot.hasError) {
+                  return Text('Algo deu errado');
+                }
+
+                if (snapshot.connectionState == ConnectionState.waiting) {
+                  return Text("Carregando");
+                }
+
+                return GridView.count(
+                  crossAxisCount: 2,
+                  children:
+                      snapshot.data!.docs.map((DocumentSnapshot document) {
+                    Map<String, dynamic> data =
+                        document.data() as Map<String, dynamic>;
+                    return ListTile(
+                      title: Text(data['nome']),
+                      subtitle: Text(
+                          'Código: ${data['codigo']}, Quantidade: ${data['quantidade']}'),
+                      onTap: () {
+                        // Navega para a tela de detalhes do produto
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>
+                                  TelaDetalhesProduto(dadosProduto: data)),
+                        );
+                      },
+                    );
+                  }).toList(),
                 );
-              }),
+              },
             ),
           ),
         ],
