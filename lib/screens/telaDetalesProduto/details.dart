@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class TelaDetalhesProduto extends StatelessWidget {
+class DetailsProduct extends StatelessWidget {
   final Map<String, dynamic> dadosProduto;
 
-  TelaDetalhesProduto({required this.dadosProduto});
+  DetailsProduct({required this.dadosProduto});
 
   @override
   Widget build(BuildContext context) {

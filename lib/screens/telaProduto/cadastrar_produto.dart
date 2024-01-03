@@ -22,6 +22,21 @@ class _ProductScreenState extends State<ProductScreen> {
   final dataVencimentoController = TextEditingController();
   DateTime selectedDate = DateTime.now();
 
+  Future<void> sendData() async {
+    await FirebaseFirestore.instance
+        .collection('produtos')
+        .doc(codigoController.text)
+        .set({
+      'nome': nomeController.text,
+      'descricao': descricaoController.text,
+      'categoria': categoriaSelecionada,
+      'lote': loteController.text,
+      'quantidade': quantidadeController.text,
+      'dataFabricacao': dataFabricacaoController.text,
+      'dataVencimento': dataVencimentoController.text,
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -308,18 +323,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
                     // Salva os dados no Firestore
-                    await FirebaseFirestore.instance
-                        .collection('produtos')
-                        .doc(codigoController.text)
-                        .set({
-                      'nome': nomeController.text,
-                      'descricao': descricaoController.text,
-                      'categoria': categoriaSelecionada,
-                      'lote': loteController.text,
-                      'quantidade': quantidadeController.text,
-                      'dataFabricacao': dataFabricacaoController.text,
-                      'dataVencimento': dataVencimentoController.text,
-                    });
+                    await sendData();
 
                     // Navega para a tela inicial
                     Navigator.push(

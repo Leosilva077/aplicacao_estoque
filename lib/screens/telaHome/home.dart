@@ -110,7 +110,7 @@ class _HomeAppState extends State<HomeApp> {
                           context,
                           MaterialPageRoute(
                               builder: (context) =>
-                                  TelaDetalhesProduto(dadosProduto: data)),
+                                  DetailsProduct(dadosProduto: data)),
                         );
                       },
                     );

@@ -21,7 +21,8 @@ class Routes extends StatelessWidget {
         "TelaCadastraProduto": (context) => const ProductScreen(),
         "TelaCadastroUsuario": (context) => const CadastreScreen(),
         "TelaCategoria": (context) => const CategoriaScreen(),
-        "TelaPerfil": (context) => const ProfileScrenn()
+        "TelaPerfil": (context) => const ProfileScrenn(),
+        // "TelaDetalheProduto":
       },
     );
   }

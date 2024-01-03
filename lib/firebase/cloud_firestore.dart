@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 class MeuWidget extends StatefulWidget {
+  const MeuWidget({super.key});
+
   @override
   _MeuWidgetState createState() => _MeuWidgetState();
 }
@@ -12,15 +14,15 @@ class _MeuWidgetState extends State<MeuWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Exemplo Firestore')),
+      appBar: AppBar(title: const Text('Exemplo Firestore')),
       body: Column(
         children: <Widget>[
           TextField(
             controller: _meuDadoController,
-            decoration: InputDecoration(labelText: 'Insira um dado'),
+            decoration: const InputDecoration(labelText: 'Insira um dado'),
           ),
           ElevatedButton(
-            child: Text('Salvar no Firestore'),
+            child: const Text('Salvar no Firestore'),
             onPressed: () async {
               // Passo 4: Salvar dados no Firestore
               await FirebaseFirestore.instance.collection('minhaColecao').add({
@@ -36,7 +38,7 @@ class _MeuWidgetState extends State<MeuWidget> {
             builder: (BuildContext context,
                 AsyncSnapshot<DocumentSnapshot> snapshot) {
               if (snapshot.hasError) {
-                return Text("Algo deu errado");
+                return const Text("Algo deu errado");
               }
 
               if (snapshot.connectionState == ConnectionState.done) {
@@ -45,7 +47,7 @@ class _MeuWidgetState extends State<MeuWidget> {
                 return Text("Dado recuperado: ${data['meuDado']}");
               }
 
-              return Text("Carregando");
+              return const Text("Carregando");
             },
           ),
         ],
