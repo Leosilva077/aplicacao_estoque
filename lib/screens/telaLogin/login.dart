@@ -1,14 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/consts.dart';
 import 'package:flutter_application_1/widget/widget_social_Apple.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
 import '../../widget/widget_form.dart';
+import '../../firebase/firebase_auth.dart';
+
+final TextEditingController _emailController = TextEditingController();
+final TextEditingController _senhaController = TextEditingController();
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final AuthService _authService = AuthService();
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -19,12 +25,12 @@ class LoginScreen extends StatelessWidget {
           size: 35,
         ),
       ),
-      body: _getBody(),
+      body: _getBody(context, _authService),
       backgroundColor: backgroundColor,
     );
   }
 
-  Widget _getBody() {
+  Widget _getBody(BuildContext context, AuthService _authService) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -45,9 +51,19 @@ class LoginScreen extends StatelessWidget {
             Form(
               child: Column(
                 children: [
-                  texFormField(label: 'Email', icon: Icons.email_outlined),
+                  texFormField(
+                    label: 'Email',
+                    icon: Icons.email_outlined,
+                    controller: _emailController,
+                    obscureText: false,
+                  ),
                   const SizedBox(height: 49),
-                  texFormField(label: 'Senha', icon: Icons.key_outlined),
+                  texFormField(
+                    label: 'Senha',
+                    icon: Icons.key_outlined,
+                    controller: _senhaController,
+                    obscureText: true,
+                  ),
                 ],
               ),
             ),
@@ -63,7 +79,45 @@ class LoginScreen extends StatelessWidget {
                 )),
             const SizedBox(height: 32),
             GestureDetector(
-              onTap: null,
+              onTap: () async {
+                print('Email: ${_emailController.text}');
+                try {
+                  // Verifique se o email e a senha não estão vazios
+                  if (_emailController.text.trim().isEmpty ||
+                      _senhaController.text.isEmpty) {
+                    _authService.showError(
+                        context, 'Por favor, preencha todos os campos.');
+                    return;
+                  }
+                  // Verifique se o email está no formato correto
+                  if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
+                      .hasMatch(_emailController.text.trim())) {
+                    _authService.showError(context,
+                        'O email fornecido está mal formatado. Verifique se o email está correto e tente novamente.');
+                    return;
+                  }
+                  User? user = await _authService.signIn(
+                    email: _emailController.text.trim(),
+                    password: _senhaController.text,
+                  );
+                  if (user != null) {
+                    Navigator.pushReplacementNamed(context, 'TelaInicio');
+                  } else {
+                    _authService.showError(context, 'Erro ao fazer login');
+                  }
+                } on FirebaseAuthException catch (e) {
+                  if (e.code == 'user-not-found') {
+                    _authService.showError(
+                        context, 'Nenhum usuário encontrado para esse e-mail.');
+                  } else if (e.code == 'wrong-password') {
+                    _authService.showError(
+                        context, 'Senha errada fornecida para esse usuário.');
+                  } else if (e.code == 'invalid-email') {
+                    _authService.showError(context,
+                        'O email fornecido está mal formatado. Verifique se o email está correto e tente novamente.');
+                  }
+                }
+              },
               child: Column(
                 children: [
                   Container(
@@ -118,7 +172,7 @@ class LoginScreen extends StatelessWidget {
                   prymaryColor: const MaterialStatePropertyAll(primaryColor),
                 ),
               ]),
-            )
+            ),
           ],
         ),
       ),

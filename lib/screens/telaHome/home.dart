@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/screens/telaDetalesProduto/details.dart';
 
 class HomeApp extends StatefulWidget {
-  const HomeApp({Key? key}) : super(key: key);
+  const HomeApp({super.key});
 
   @override
   State<HomeApp> createState() => _HomeAppState();
@@ -87,11 +87,11 @@ class _HomeAppState extends State<HomeApp> {
               builder: (BuildContext context,
                   AsyncSnapshot<QuerySnapshot> snapshot) {
                 if (snapshot.hasError) {
-                  return Text('Algo deu errado');
+                  return const Text('Algo deu errado');
                 }
 
                 if (snapshot.connectionState == ConnectionState.waiting) {
-                  return Text("Carregando");
+                  return const Text("Carregando");
                 }
 
                 return GridView.count(

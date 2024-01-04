@@ -4,14 +4,14 @@ import 'package:flutter_application_1/screens/telaHome/home.dart';
 import 'package:intl/intl.dart';
 
 class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+  const ProductScreen({super.key});
 
   @override
   State<ProductScreen> createState() => _ProductScreenState();
 }
 
 class _ProductScreenState extends State<ProductScreen> {
-  final _formKey = GlobalKey<FormState>();
+  final _formKeyProduct = GlobalKey<FormState>(); // Nova GlobalKey
   final codigoController = TextEditingController();
   final nomeController = TextEditingController();
   final descricaoController = TextEditingController();
@@ -64,7 +64,7 @@ class _ProductScreenState extends State<ProductScreen> {
     return SafeArea(
         child: Column(children: [
       Form(
-        key: _formKey,
+        key: _formKeyProduct, // Use a nova GlobalKey aqui
         child: Column(
           children: [
             SizedBox(
@@ -321,7 +321,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: ElevatedButton(
                 onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
+                  if (_formKeyProduct.currentState!.validate()) {
                     // Salva os dados no Firestore
                     await sendData();
 

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class MeuWidget extends StatefulWidget {
-  const MeuWidget({super.key});
+class FirestoreDb extends StatefulWidget {
+  const FirestoreDb({super.key});
 
   @override
   _MeuWidgetState createState() => _MeuWidgetState();
 }
 
-class _MeuWidgetState extends State<MeuWidget> {
+class _MeuWidgetState extends State<FirestoreDb> {
   final _meuDadoController = TextEditingController();
 
   @override

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import '../theme/consts.dart';
 
 Container texFormField(
-    {required String label, required IconData icon, BorderSide? borderSide}) {
+    {required String label,
+    required IconData icon,
+    BorderSide? borderSide,
+    required bool obscureText,
+    required TextEditingController controller}) {
   return Container(
     decoration: const BoxDecoration(
       color: Colors.white,

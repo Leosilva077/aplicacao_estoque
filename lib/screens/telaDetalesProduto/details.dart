@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class DetailsProduct extends StatelessWidget {
   final Map<String, dynamic> dadosProduto;
 
-  DetailsProduct({required this.dadosProduto});
+  const DetailsProduct({super.key, required this.dadosProduto});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class DetailsProduct extends StatelessWidget {
         title: Text(dadosProduto['nome']),
       ),
       body: Padding(
-        padding: EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
