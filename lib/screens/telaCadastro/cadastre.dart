@@ -1,9 +1,10 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/consts.dart';
 import 'package:flutter_application_1/widget/widget_cadastre_form.dart';
 import 'package:flutter_application_1/widget/widget_social_google.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import '../../firebase/firebase_auth.dart';
 import '../../widget/widget_social_Apple.dart';
 
@@ -70,7 +71,9 @@ class _CadastreState extends State<CadastreScreen> {
                       });
                     },
                     obscureText: false,
-                    validator: (value) {},
+                    validator: (value) {
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 15),
                   texForm(
@@ -83,7 +86,9 @@ class _CadastreState extends State<CadastreScreen> {
                       });
                     },
                     obscureText: false,
-                    validator: (value) {},
+                    validator: (value) {
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 15),
                   texForm(
@@ -106,7 +111,9 @@ class _CadastreState extends State<CadastreScreen> {
                         });
                       },
                     ),
-                    validator: (value) {},
+                    validator: (value) {
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 15),
                   texForm(
@@ -131,7 +138,9 @@ class _CadastreState extends State<CadastreScreen> {
                         });
                       },
                     ),
-                    validator: (value) {},
+                    validator: (value) {
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 15),
                   ElevatedButton(

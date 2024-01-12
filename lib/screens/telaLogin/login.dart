@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print, use_build_context_synchronously
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/theme/consts.dart';
@@ -14,7 +16,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final AuthService _authService = AuthService();
+    final AuthService authService = AuthService();
     return Scaffold(
       appBar: AppBar(
         elevation: 1,
@@ -25,12 +27,12 @@ class LoginScreen extends StatelessWidget {
           size: 35,
         ),
       ),
-      body: _getBody(context, _authService),
+      body: _getBody(context, authService),
       backgroundColor: backgroundColor,
     );
   }
 
-  Widget _getBody(BuildContext context, AuthService _authService) {
+  Widget _getBody(BuildContext context, AuthService authService) {
     return SafeArea(
       child: SingleChildScrollView(
         child: Column(
@@ -56,6 +58,15 @@ class LoginScreen extends StatelessWidget {
                     icon: Icons.email_outlined,
                     controller: _emailController,
                     obscureText: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, digite um email';
+                      }
+                      if (!value.contains('@')) {
+                        return 'Por favor, digite um email válido';
+                      }
+                      return null;
+                    },
                   ),
                   const SizedBox(height: 49),
                   texFormField(
@@ -63,6 +74,15 @@ class LoginScreen extends StatelessWidget {
                     icon: Icons.key_outlined,
                     controller: _senhaController,
                     obscureText: true,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Por favor, digite uma senha';
+                      }
+                      if (value.length < 6) {
+                        return 'Por favor, digite uma senha com pelo menos 6 caracteres';
+                      }
+                      return null;
+                    },
                   ),
                 ],
               ),
@@ -78,42 +98,43 @@ class LoginScreen extends StatelessWidget {
                       fontWeight: FontWeight.w500),
                 )),
             const SizedBox(height: 32),
-            GestureDetector(
+            InkWell(
               onTap: () async {
                 print('Email: ${_emailController.text}');
                 try {
                   // Verifique se o email e a senha não estão vazios
                   if (_emailController.text.trim().isEmpty ||
                       _senhaController.text.isEmpty) {
-                    _authService.showError(
+                    authService.showError(
                         context, 'Por favor, preencha todos os campos.');
                     return;
                   }
                   // Verifique se o email está no formato correto
                   if (!RegExp(r'^[^@]+@[^@]+\.[^@]+')
                       .hasMatch(_emailController.text.trim())) {
-                    _authService.showError(context,
+                    authService.showError(context,
                         'O email fornecido está mal formatado. Verifique se o email está correto e tente novamente.');
                     return;
                   }
-                  User? user = await _authService.signIn(
+                  User? user = await authService.signIn(
                     email: _emailController.text.trim(),
                     password: _senhaController.text,
                   );
                   if (user != null) {
                     Navigator.pushReplacementNamed(context, 'TelaInicio');
                   } else {
-                    _authService.showError(context, 'Erro ao fazer login');
+                    authService.showError(context, 'Erro ao fazer login');
                   }
                 } on FirebaseAuthException catch (e) {
+                  print('Erro ao fazer login: ${e.code} - ${e.message}');
                   if (e.code == 'user-not-found') {
-                    _authService.showError(
+                    authService.showError(
                         context, 'Nenhum usuário encontrado para esse e-mail.');
                   } else if (e.code == 'wrong-password') {
-                    _authService.showError(
+                    authService.showError(
                         context, 'Senha errada fornecida para esse usuário.');
                   } else if (e.code == 'invalid-email') {
-                    _authService.showError(context,
+                    authService.showError(context,
                         'O email fornecido está mal formatado. Verifique se o email está correto e tente novamente.');
                   }
                 }

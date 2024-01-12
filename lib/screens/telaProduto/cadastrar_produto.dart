@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/screens/telaHome/home.dart';
@@ -41,7 +43,7 @@ class _ProductScreenState extends State<ProductScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Cadastro de Produtos',
           style: TextStyle(
               fontSize: 20, fontWeight: FontWeight.w400, color: Colors.black),
@@ -49,7 +51,7 @@ class _ProductScreenState extends State<ProductScreen> {
         centerTitle: true,
         elevation: 0,
         backgroundColor: Colors.grey[200],
-        leading: Icon(
+        leading: const Icon(
           Icons.arrow_back,
           color: Colors.black,
           size: 35,
@@ -72,7 +74,7 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 50,
               child: TextFormField(
                 controller: codigoController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text(
                     'Código',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
@@ -93,7 +95,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 }, // Se valor for fazio ou valor for nulo
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             SizedBox(
@@ -101,7 +103,7 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 50,
               child: TextFormField(
                   controller: nomeController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                       label: Text(
                         'Nome',
                         style: TextStyle(
@@ -118,7 +120,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     return null;
                   }),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             SizedBox(
@@ -126,7 +128,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 height: 50,
                 child: TextFormField(
                     controller: descricaoController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text(
                           'Descriçao',
                           style: TextStyle(
@@ -137,14 +139,14 @@ class _ProductScreenState extends State<ProductScreen> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(15)),
                         )))),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             SizedBox(
               width: 360,
               height: 50,
               child: DropdownButtonFormField<String>(
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text(
                     'Categoria',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
@@ -182,7 +184,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 value: categoriaSelecionada,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             SizedBox(
@@ -190,7 +192,7 @@ class _ProductScreenState extends State<ProductScreen> {
               height: 50,
               child: TextFormField(
                 controller: loteController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   label: Text(
                     'Lote',
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.w400),
@@ -203,7 +205,7 @@ class _ProductScreenState extends State<ProductScreen> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Row(
@@ -213,7 +215,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   width: 100,
                   height: 60,
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text(
                           'Data de fabricação',
                           style: TextStyle(
@@ -248,7 +250,7 @@ class _ProductScreenState extends State<ProductScreen> {
                     },
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 20,
                 ),
                 SizedBox(
@@ -256,7 +258,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   height: 60,
                   child: TextFormField(
                     controller: quantidadeController,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       label: Text(
                         'Qtd',
                         style: TextStyle(
@@ -269,14 +271,14 @@ class _ProductScreenState extends State<ProductScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   width: 25,
                 ),
                 SizedBox(
                   width: 100,
                   height: 60,
                   child: TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                         label: Text(
                           'Data de vencimento',
                           style: TextStyle(
@@ -316,7 +318,7 @@ class _ProductScreenState extends State<ProductScreen> {
             Container(
               width: 170,
               height: 45,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.all(Radius.circular(10))),
               child: ElevatedButton(
@@ -328,11 +330,11 @@ class _ProductScreenState extends State<ProductScreen> {
                     // Navega para a tela inicial
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => HomeApp()),
+                      MaterialPageRoute(builder: (context) => const HomeApp()),
                     );
                   }
                 },
-                child: Text('Cadastrar'),
+                child: const Text('Cadastrar'),
               ),
             ),
           ],

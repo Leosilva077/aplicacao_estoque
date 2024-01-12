@@ -6,7 +6,8 @@ Container texFormField(
     required IconData icon,
     BorderSide? borderSide,
     required bool obscureText,
-    required TextEditingController controller}) {
+    required TextEditingController controller,
+    required String? Function(dynamic value) validator}) {
   return Container(
     decoration: const BoxDecoration(
       color: Colors.white,
